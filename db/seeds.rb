@@ -14,7 +14,7 @@
     },
     next_question: {
       'yes' => 2,
-      'no' => 3
+      'no' => 2
     },
     can_skip: false
   )
@@ -26,9 +26,9 @@
       'Cooking' => ['Food']
     },
     next_question: {
-      'Video Games' => 3,
-      'Hiking' => 4,
-      'Cooking' => 5
+      'Video Games' => 2,
+      'Hiking' => 2,
+      'Cooking' => 2
     },
     can_skip: true
   )
@@ -40,7 +40,7 @@
     },
     next_question: {
       'yes' => 2,
-      'no' => 3
+      'no' => 2
     },
     can_skip: false
   )

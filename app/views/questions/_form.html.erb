@@ -1,0 +1,11 @@
+<%= form_tag(response_index_path, method: "post") do %>
+  <%= @question.title %>
+  <br>
+  <% @question.options.each do |option_title, _| %>
+    <%= radio_button_tag(:selected_option, option_title) %>
+    <%= label_tag(:selected_option, option_title) %>
+    <br>
+  <% end %>
+  <%= hidden_field_tag(:question_id, @question.id) %>
+  <%= submit_tag("Next Question") %>
+<% end %>

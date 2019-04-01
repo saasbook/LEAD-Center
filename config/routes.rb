@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   root 'placeholder#home'
   resources :quizzes
+  resources :response
 end
