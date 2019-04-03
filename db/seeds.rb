@@ -45,14 +45,15 @@
     can_skip: false
   )
   Question.create(
-    title: 'This is the last question? Should reask athletics.',
+    title: 'This is the last question? Should close the modal.',
     options: {
       'yes' => ['Greek', 'Professional', 'Business'],
-      'no' => ['Food', 'Indoors']
+      'no' => ['Food', 'Video Games']
     },
     next_question: {
-      'yes' => 1,
-      'no' => 1
+      'yes' => nil,
+      'no' => nil
     },
     can_skip: false
   )
+

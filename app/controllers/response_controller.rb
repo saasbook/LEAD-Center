@@ -16,7 +16,11 @@ class ResponseController < ApplicationController
     question = Question.find(params[:question_id])
     categories = question.options[params[:selected_option]]
     next_question = question.next_question[params[:selected_option]]
-    @question = Question.find(next_question)
+    if next_question.nil?
+      @question = nil
+    else
+      @question = Question.find(next_question)
+    end
     @response = Response.new
     responses_params = {
       :question_id => question.id,
