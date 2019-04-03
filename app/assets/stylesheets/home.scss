@@ -73,6 +73,14 @@ figure.snip1104 figcaption {
   bottom: 0;
   right: 0;
 }
+figure.snip1104 .fig-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
 
 figure.snip1104 h4 {
   position: absolute;
@@ -107,13 +115,31 @@ figure.snip1104:before {
   transform: rotate(110deg) translateY(-50%);
 }
 
-figure.snip1104 a {
+figure.snip1104 .fig-holder {
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   position: absolute;
   z-index: 1;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+figure.snip1104:hover .fig-holder {
+  opacity: 1;
+}
+
+figure.snip1104:hover .fig-holder .btn-outline-light {
+  font-weight: 900 !important;
+  border: 2px solid #eee !important;
+  border-radius: 0 !important;
+}
+figure.snip1104:hover .fig-holder .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
 }
 
 figure.snip1104.blue {
