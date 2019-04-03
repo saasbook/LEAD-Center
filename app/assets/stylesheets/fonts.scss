@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@font-face {
+  font-family: "Quadon Bold";
+  src: font-url('QuadonBold.otf') format("truetype");
+}
+@font-face {
+  font-family: "Quadon Regular";
+  src: font-url('QuadonRegular.otf') format("truetype");
+}
+
+$quadon-regular: 'Quadon Regular', sans-serif;
+$quadon-bold: 'Quadon Bold', sans-serif;
+$noto-font: 'Noto Sans', sans-serif;
+$default-font: $noto-font;
+$default-title: $quadon-bold;
