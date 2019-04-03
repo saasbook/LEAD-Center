@@ -12,5 +12,19 @@
  *
  */
 
- @import 'home';
  
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+* {
+margin: 0px;
+padding: 0px;
+}
+  
+@import 'bootstrap';
+@import 'quiz';
+@import 'home';
+

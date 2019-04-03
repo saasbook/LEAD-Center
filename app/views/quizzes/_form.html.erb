@@ -1,17 +1,5 @@
-<%= form_with(model: quiz, local: true) do |form| %>
-  <% if quiz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
-
-      <ul>
-      <% quiz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+<%= form_tag(quizzes_path, method: "post") do %>
+  <div class="text-center">
+    <%= submit_tag("Start Quiz", class: 'btn btn-info', remote: true, 'data-toggle': 'modal', 'data-target': '#exampleModalCenter') %>
   </div>
 <% end %>

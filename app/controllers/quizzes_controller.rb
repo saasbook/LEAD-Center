@@ -5,16 +5,32 @@ class QuizzesController < ApplicationController
   # GET /quizzes.json
   def index
     @quizzes = Quiz.all
+    @quiz = Quiz.new
   end
 
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
+    # Get the quiz id from user, defaults to user 1
+    @quiz = Quiz.find(1)
+    redirect_to quizzes_path unless @quiz
+    @question = Question.find(@quiz.current_question)
+    @response = Response.new
   end
 
   # GET /quizzes/new
   def new
     @quiz = Quiz.new
+  end
+
+  def quiz
+    @quiz = Quiz.find(1)
+    redirect_to quizzes_path unless @quiz
+    @question = Question.find(@quiz.current_question)
+    @response = Response.new
+    respond_to do |format|
+      format.html {}
+    end
   end
 
   # GET /quizzes/1/edit
@@ -29,9 +45,9 @@ class QuizzesController < ApplicationController
     @response = Response.new
     respond_to do |format|
       if @quiz.save
-        format.html { render :partial => 'questions/form' }
+        format.js
+        format.html { redirect_to take_quiz_path }
         format.json { render json: @question }
-        # format.json { render :show, status: :created, location: @quiz }
       else
         format.html { render :new }
         format.json { render json: @quiz.errors, status: :unprocessable_entity }

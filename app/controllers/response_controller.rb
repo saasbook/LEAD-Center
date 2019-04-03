@@ -29,6 +29,7 @@ class ResponseController < ApplicationController
       if @response.save
         format.html { render :partial => 'questions/form' }
         format.json { render json: @question }
+        format.js
         # format.json { render :show, status: :created, location: @quiz }
       else
         format.html { render :new }

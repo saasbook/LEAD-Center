@@ -26,9 +26,9 @@
       'Cooking' => ['Food']
     },
     next_question: {
-      'Video Games' => 2,
-      'Hiking' => 2,
-      'Cooking' => 2
+      'Video Games' => 3,
+      'Hiking' => 3,
+      'Cooking' => 3
     },
     can_skip: true
   )
@@ -39,8 +39,20 @@
       'no' => ['Food', 'Indoors']
     },
     next_question: {
-      'yes' => 2,
-      'no' => 2
+      'yes' => 4,
+      'no' => 4
+    },
+    can_skip: false
+  )
+  Question.create(
+    title: 'This is the last question? Should reask athletics.',
+    options: {
+      'yes' => ['Greek', 'Professional', 'Business'],
+      'no' => ['Food', 'Indoors']
+    },
+    next_question: {
+      'yes' => 1,
+      'no' => 1
     },
     can_skip: false
   )
