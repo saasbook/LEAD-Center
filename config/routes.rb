@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get  'login'  => 'placeholder#landing', :as => 'landing'
 
   root 'placeholder#home'
+  resources :quizzes
+  resources :response
+  get 'quiz', to: 'quizzes#quiz', as: :take_quiz
 end
