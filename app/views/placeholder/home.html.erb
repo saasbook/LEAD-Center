@@ -11,11 +11,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #00ada1">
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3B7EA1">
   <div class="container">
-  <%= image_tag("LEAD logo header", {:style => "height:60px; padding-right: 20px"}) %>
      
-  <a class="navbar-brand" href="/">Home</a>
+  <a class="navbar-brand" href="/">communities<b>@Cal</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,8 +35,8 @@
 </nav>
 
 <% if @showQuizWarning %>
-<div class="jumbotron text-center" style="background-color: #FF000">
-  <h5>Please take the quiz to see organization matches.</h5>
+<div id='home-hero' class="jumbotron text-center" style="background-color: #FF000">
+  <h3 class='home-title'>FIND YOUR COMMUNITY AT CAL.<br/>GET MATCHED WITH ORGANIZATIONS NOW.</h3>
   <%= render 'quizzes/form' %>
 </div>
 <% end %>
@@ -45,14 +44,36 @@
 <h3 class="matched"> Your matched organizations </h3>
 <div class="container" style="margin-top:30px">
    <div class="row text-center grid">
-    <% @organizations.each do |org| %>
-  <figure class="snip1104 blue">
-    <img src="https://images.unsplash.com/photo-1504283242485-c68c10b5dbb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80" />
-    <figcaption>
-      <h4><%= org %></h2>
-    </figcaption>
-    <a href="#"></a>
-  </figure>
+    <% @organizations.each_with_index do |org, i| %>
+      <!-- Modal -->
+      <div class="modal fade" id="<%= 'modal-' + i.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><%= org %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Description of <%= org %>.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="snip1104 blue">
+        <img src="https://images.unsplash.com/photo-1504283242485-c68c10b5dbb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80" />
+        <figcaption>
+          <h4><%= org %></h2>
+        </figcaption>
+        <div class='fig-holder'>
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#<%= 'modal-' + i.to_s %>">Learn More</button>
+        </div>
+      </figure>
     <% end %>
   </div>
 </div>

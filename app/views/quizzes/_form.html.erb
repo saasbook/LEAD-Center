@@ -16,6 +16,6 @@
 
 <%= form_tag(quizzes_path, method: "post", remote: true) do %>
   <div class="text-center">
-    <%= submit_tag("Start Quiz", id: 'start-quiz-btn', class: 'btn btn-info', 'data-toggle': 'modal', 'data-target': '#exampleModalCenter') %>
+    <%= submit_tag("Start", id: 'start-quiz-btn', class: 'btn start-quiz-btn btn-outline-warning', 'data-toggle': 'modal', 'data-target': '#exampleModalCenter') %>
   </div>
 <% end %>

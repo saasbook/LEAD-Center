@@ -15,7 +15,7 @@
   </div>
   <div class="modal-footer">
     <% if @question.nil? %>
-      <button type="button" class="btn btn-primary" data-dismiss="modal">See Orgs</button>
+      <button type="button" class="btn btn-finish-quiz" data-dismiss="modal">See Orgs</button>
     <% else %>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip</button>
       <%= submit_tag('Next Question', class: 'btn btn-warning') %>
