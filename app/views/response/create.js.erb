@@ -1,6 +1,6 @@
 // Called when quesiton is submitted. Handles creation of question response.
 $('#response-form').fadeOut(500, function() {
     $('#response-form').remove();
-    $("<%= j render 'questions/form' %>").appendTo('#question-container').hide().fadeIn(1000);
+    $("<%= j render 'questions/form' %>").appendTo('#response-form-container').hide().fadeIn(1000);
   }
 );

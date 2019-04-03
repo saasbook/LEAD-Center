@@ -1,11 +1,16 @@
 <%= form_tag(response_index_path, method: 'post', class: 'form-check', remote: true, id: 'response-form') do %>
-  <h5 class='card-title'><%= @question.title %></h5>
-  <div id='options-container'>
-    <% @question.options.each do |option_title, _| %>
-      <label><%= radio_button_tag(:selected_option, option_title) %> <%= option_title %></label>
-      <br>
-    <% end %>
+  <div class="modal-body text-left" id='question-container'>
+    <h5 class='card-title'><%= @question.title %></h5>
+    <div id='options-container'>
+      <% @question.options.each do |option_title, _| %>
+        <label><%= radio_button_tag(:selected_option, option_title) %> <%= option_title %></label>
+        <br>
+      <% end %>
+    </div>
+    <%= hidden_field_tag(:question_id, @question.id) %>
   </div>
-  <%= hidden_field_tag(:question_id, @question.id) %>
-  <%= submit_tag('Next Question', class: 'btn btn-warning') %>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip</button>
+    <%= submit_tag('Next Question', class: 'btn btn-warning') %>
+  </div>
 <% end %>

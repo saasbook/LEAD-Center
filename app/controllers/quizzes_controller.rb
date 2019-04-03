@@ -46,7 +46,7 @@ class QuizzesController < ApplicationController
     respond_to do |format|
       if @quiz.save
         format.js
-        format.html { redirect_to take_quiz_path }
+        format.html {}
         format.json { render json: @question }
       else
         format.html { render :new }
