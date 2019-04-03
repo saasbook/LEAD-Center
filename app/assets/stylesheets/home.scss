@@ -1,3 +1,33 @@
+#home-hero {
+  height: 500px;
+  background-image:  url('http://lead.berkeley.edu/wp-content/uploads/2014/01/lead-center-backgroundv2.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home-hero h3 {
+  color: #ffffff;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.start-quiz-btn {
+  margin-top: 2em;
+  padding: 0.5em 1.5em !important;
+  color: #ffffff !important;
+  background-color: lighten(#FDB515, 10%) !important;
+  font-family: $noto-font;
+  border-radius: 0px !important;
+  // background-color: rgba(185, 211, 182, 1) !important;
+}
+
+.start-quiz-btn:hover {
+  background-color: lighten(#FDB515, 5%) !important;
+}
+
 .home-title {
   font-family: $quadon-bold;
 }
