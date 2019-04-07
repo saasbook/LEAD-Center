@@ -7,6 +7,8 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+# Use figaro for encryption
+gem 'figaro'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
