@@ -1,4 +1,4 @@
-# LEAD-Center &middot; [![Build Status](https://travis-ci.org/eilenshahbaz/LEAD-Center.svg?branch=master)](https://travis-ci.org/eilenshahbaz/LEAD-Center) &middot; [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/eilenshahbaz/LEAD-Center/maintainability) &middot; [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/eilenshahbaz/LEAD-Center/test_coverage)
+# LEAD-Center &middot; [![Build Status](https://travis-ci.org/eilenshahbaz/LEAD-Center.svg?branch=master)](https://travis-ci.org/eilenshahbaz/LEAD-Center) &middot; [![Maintainability](https://api.codeclimate.com/v1/badges/d515c519cc725088b09a/maintainability)](https://codeclimate.com/github/eilenshahbaz/LEAD-Center/maintainability) &middot; [![Test Coverage](https://api.codeclimate.com/v1/badges/d515c519cc725088b09a/test_coverage)](https://codeclimate.com/github/eilenshahbaz/LEAD-Center/test_coverage)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
