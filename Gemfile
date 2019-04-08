@@ -7,6 +7,8 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+# Use figaro for encryption
+gem 'figaro'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
@@ -40,6 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'jasmine-rails' # BDD for JavaScript
   gem 'sqlite3', '~> 1.3.6'
   gem 'pry', '~> 0.12.2'
 end
@@ -60,6 +63,15 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'pry', '~> 0.12.2'
+  # setup Cucumber, RSpec, Guard support
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'simplecov', :require => false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs
+  gem 'database_cleaner' # required by Cucumber
+  gem 'factory_bot_rails' # if using FactoryGirl
+  gem 'metric_fu'        # collect code metrics
 end
 
 # make sure the following gems are in your production group:
