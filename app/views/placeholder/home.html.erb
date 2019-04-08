@@ -41,6 +41,7 @@
 </div>
 <% end %>
 
+
 <h3 class="matched"> Your matched organizations </h3>
 <div class="container" style="margin-top:30px">
    <div class="row text-center grid">
@@ -76,6 +77,7 @@
       </figure>
     <% end %>
   </div>
+  <%= will_paginate @organizations, previous_label: h("<"), next_label: h(">") %>
 </div>
 </body>
 </html>
