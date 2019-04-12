@@ -45,13 +45,13 @@
     <form action= "/profile/<%= @id %>" method="post" id="info">
       <div class="form-row">
         <div class="form-group col-md-3">
-          <label for="firstname"><h4>First name</h4></label>
-          <input type="text" name="firstname" class="form-control" id="firstname" value="<%= @profile.firstname %>">
+          <label for="first_name"><h4>First name</h4></label>
+          <input type="text" name="first_name" class="form-control" id="first_name" value="<%= @profile.first_name %>">
         </div>
 
         <div class="form-group col-md-3">
-          <label for="lastname"><h4>Last name</h4></label>
-          <input type="text" name="lastname" class="form-control" id="lastname" value="<%= @profile.lastname %>">
+          <label for="last_name"><h4>Last name</h4></label>
+          <input type="text" name="last_name" class="form-control" id="last_name" value="<%= @profile.last_name %>">
         </div>
 
         <div class="form-group col-md-6">
@@ -61,8 +61,8 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="schoolyear"><h4>Graduation Year</h4></label>
-          <select id="schoolyear" name="schoolyear" class="form-control form-control-lg">
+          <label for="grad_year"><h4>Graduation Year</h4></label>
+          <select id="grad_year" name="grad_year" class="form-control form-control-lg">
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
@@ -71,7 +71,11 @@
         </div>
         <div class="form-group col-md-6">
           <label for="gender"><h4>Gender Identity</h4></label>
-          <input type="text" name="gender" class="form-control" id="gender" value="<%= @profile.gender %>">
+          <select id="gender" name="gender" class="form-control form-control-lg">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
       </div>
       <div class="form-row">
@@ -96,20 +100,20 @@
         <h4>Check If Any Of The Following Is Applicable</h4>
           <div class="form-inline">
             <div class="form-check">
-              <label for="transfer">
-                <input class="form-check-input" type="checkbox" id="transfer">Transfer Student</label>
+                <input class="form-check-input" type="checkbox" id="transfer" name="transfer" >
+                <label for="transfer">Transfer Student</label>
             </div>
           </div>
           <div class="form-inline">
             <div class="form-check">
-              <label for="Graduate">
-                <input class="form-check-input" type="checkbox" id="graduate">Graduate Student</label>
+                <input class="form-check-input" type="checkbox" id="graduate" name="graduate">
+                <label for="graduate">Graduate Student</label>
             </div>
           </div>
           <div class="form-inline">
             <div class="form-check">
-              <label for="international">
-                <input class="form-check-input" type="checkbox" id="international">International Student</label>
+                <input class="form-check-input" type="checkbox" id="international" name="international">
+                <label for="international">International Student</label>
             </div>
           </div>
 
@@ -125,19 +129,23 @@
 function setSelected(a, b) {
     for (var i=0; i<a.options.length; i++ ){
         if (a.options[i].value==b){
-          if(a.options[i].value=="Other"){
-            document.getElementById('other1').innerHTML='Other: <input type="text" name="other" value="<%= @profile.schoolyear %>"/>';
-            return;
-          }
             a.options[i].selected = true;
             return;
           }
     }
 }
-function showfield(name){
-  if(name=='Other')document.getElementById('other1').innerHTML='Other: <input type="text" name="other" class="form-control">';
-  else document.getElementById('other1').innerHTML='';
+function setChecked(a, b) {
+        if (b==true){
+            var x = document.getElementById(a);
+            x.checked = true;
+          }
+        return;
+    }
 }
-setSelected(document.getElementById('schoolyear'),"<%= @profile.schoolyear %>");
+setSelected(document.getElementById('grad_year'),"<%= @profile.grad_year %>");
 setSelected(document.getElementById('ethnicity'),"<%= @profile.ethnicity %>");
+setSelected(document.getElementById('gender'),"<%= @profile.gender %>");
+setChecked("transfer","<%= @profile.transfer %>");
+setChecked("graduate","<%= @profile.graduate %>");
+setChecked("international","<%= @profile.international %>");
 </script>

@@ -45,11 +45,11 @@
     <hr>
         <div class="col-xs-6">
           <label for="firstname"><h4>First name:</h4></label>
-          <span class="firstname"><%= @profile.firstname %></span>
+          <span class="firstname"><%= @profile.first_name %></span>
         </div>
         <div class="col-xs-6">
           <label for="lastname"><h4>Last name:</h4></label>
-          <span class="lastname"><%= @profile.lastname %></span>
+          <span class="lastname"><%= @profile.last_name %></span>
         </div>
         <div class="col-xs-6">
           <label for="major"><h4>Major:</h4></label>
@@ -57,7 +57,7 @@
         </div>
         <div class="col-xs-6">
           <label for="schoolyear"><h4>Graduation Year:</h4></label>
-          <span class="schoolyear"><%= @profile.schoolyear %></span>
+          <span class="schoolyear"><%= @profile.grad_year %></span>
         </div>
         <div class="col-xs-6">
           <label for="gender"><h4>Gender Identity:</h4></label>
@@ -67,10 +67,31 @@
           <label for="ethnicity"><h4>Ethnicity:</h4></label>
           <span class="ethnicity"><%= @profile.ethnicity %></span>
         </div>
+        <div class="col-xs-6">
+          <label for="transfer"><h4>Transfer Student:</h4></label>
+          <span class="transfer" id='transfer'></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="graduate"><h4>Graduate Student:</h4></label>
+          <span class="graduate" id='graduate'></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="international"><h4>International Student:</h4></label>
+          <span class="international" id='international'></span>
+        </div>
         <form action= "<%= @id %>/edit" method="get" id="edit">
           <div class="col-xs-12  text-center">
           <button class="btn btn-primary" type="submit">Edit Profile</button>
           </div>
         </form>
 
-      
+        <script type="text/javascript">
+        function setYesNo(a,b) {
+            if (a==true) document.getElementById(b).innerHTML = "Yes";
+            else document.getElementById(b).innerHTML = "No";
+            return;
+        }
+        setYesNo(<%= @profile.transfer %>,"transfer");
+        setYesNo(<%= @profile.international %>,"international");
+        setYesNo(<%= @profile.graduate %>,"graduate");
+        </script>

@@ -16,12 +16,27 @@ class ProfileController < ApplicationController
 
   def update
     @profile = User.find(params[:id])
-    @profile.update_attribute(:firstname, params[:firstname])
-    @profile.update_attribute(:lastname, params[:lastname])
+    @profile.update_attribute(:first_name, params[:first_name])
+    @profile.update_attribute(:last_name, params[:last_name])
     @profile.update_attribute(:major, params[:major])
     @profile.update_attribute(:gender, params[:gender])
-    @profile.update_attribute(:schoolyear, params[:schoolyear])
-    flash[:notice] = "profile was successfully updated."
+    @profile.update_attribute(:grad_year, params[:grad_year])
+    @profile.update_attribute(:ethnicity, params[:ethnicity])
+    if params[:transfer]
+      @profile.update_attribute(:transfer, true)
+    else
+      @profile.update_attribute(:transfer, false)
+    end
+    if params[:graduate]
+      @profile.update_attribute(:graduate, true)
+    else
+      @profile.update_attribute(:graduate, false)
+    end
+    if params[:international]
+      @profile.update_attribute(:international, true)
+    else
+      @profile.update_attribute(:international, false)
+    end
     redirect_to show_path
   end
 end
