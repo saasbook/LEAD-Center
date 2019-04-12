@@ -38,7 +38,7 @@
 
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
-figure.snip1104 {
+div.snip1104 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   overflow: hidden;
@@ -53,27 +53,27 @@ figure.snip1104 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
-figure.snip1104 * {
+div.snip1104 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
-figure.snip1104 img {
+div.snip1104 img {
   max-width: 100%;
   position: relative;
   opacity: 0.4;
 }
 
-figure.snip1104 figcaption {
+div.snip1104 figcaption {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
 }
-figure.snip1104 .fig-holder {
+div.snip1104 .fig-holder {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@ figure.snip1104 .fig-holder {
   z-index: 100;
 }
 
-figure.snip1104 h4 {
+div.snip1104 h4 {
   position: absolute;
   left: 40px;
   right: 40px;
@@ -97,11 +97,11 @@ figure.snip1104 h4 {
   font-weight: 400;
 }
 
-figure.snip1104 h4 span {
+div.snip1104 h4 span {
   font-weight: 800;
 }
 
-figure.snip1104:before {
+div.snip1104:before {
   height: 100%;
   width: 100%;
   top: 0;
@@ -115,7 +115,7 @@ figure.snip1104:before {
   transform: rotate(110deg) translateY(-50%);
 }
 
-figure.snip1104 .fig-holder {
+div.snip1104 .fig-holder {
   left: 0;
   right: 0;
   top: 0;
@@ -128,43 +128,43 @@ figure.snip1104 .fig-holder {
   align-items: center;
 }
 
-figure.snip1104:hover .fig-holder {
+div.snip1104:hover .fig-holder {
   opacity: 1;
 }
 
-figure.snip1104:hover .fig-holder .btn-outline-light {
+div.snip1104:hover .fig-holder .btn-outline-light {
   font-weight: 900 !important;
   border: 2px solid #eee !important;
   border-radius: 0 !important;
 }
-figure.snip1104:hover .fig-holder .btn-outline-light:hover {
+div.snip1104:hover .fig-holder .btn-outline-light:hover {
   background-color: rgba(255, 255, 255, 0.3);
   color: #ffffff !important;
 }
 
-figure.snip1104.blue {
+div.snip1104.blue {
   background: #46535E;
 }
 
-figure.snip1104.blue h4 {
+div.snip1104.blue h4 {
   background: #00B2A9;
 }
 
-figure.snip1104:hover img,
-figure.snip1104.hover img {
+div.snip1104:hover img,
+div.snip1104.hover img {
   opacity: 1;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-figure.snip1104:hover h4,
-figure.snip1104.hover h4 {
+div.snip1104:hover h4,
+div.snip1104.hover h4 {
   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
 }
 
-figure.snip1104:hover:before,
-figure.snip1104.hover:before {
+div.snip1104:hover:before,
+div.snip1104.hover:before {
   -webkit-transform: rotate(110deg) translateY(-150%);
   transform: rotate(110deg) translateY(-150%);
 }
@@ -214,4 +214,26 @@ figure.snip1104.hover:before {
       padding: 0.1em 0.25em;
     }
   }
+}
+
+.slick-next, .slick-prev {
+  background: #00B2A9;
+}
+.slick-next:hover, 
+.slick-next:focus, 
+.slick-prev:hover, 
+.slick-prev:focus {
+  background: #00B2A9;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+  opacity: .9;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
+{
+  background: transparent;
 }
