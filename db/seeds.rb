@@ -57,3 +57,15 @@
     can_skip: false
   )
 
+  Profile.create(
+    firstname: 'Tony',
+    lastname: 'Li',
+    gender: 'male',
+    major: 'IEOR',
+    schoolyear: '2020',
+    ethnicity: 'East Asian',
+    transfer: false,
+    graduate: false,
+    international: false,
+    profile_id: 1
+  )

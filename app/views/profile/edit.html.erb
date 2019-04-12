@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3B7EA1">
+  <div class="container">
+
+  <a class="navbar-brand" href="/">communities<b>@Cal</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+<hr>
+   <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+    <hr>
+    <form action= "/profile/<%= @id %>" method="post" id="info">
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="firstname"><h4>First name</h4></label>
+          <input type="text" name="firstname" class="form-control" id="firstname" value="<%= @profile.firstname %>">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="lastname"><h4>Last name</h4></label>
+          <input type="text" name="lastname" class="form-control" id="lastname" value="<%= @profile.lastname %>">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="major"><h4>Major</h4></label>
+          <input type="text" name="major" class="form-control" id="major" value="<%= @profile.major %>">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="schoolyear"><h4>Graduation Year</h4></label>
+          <select id="schoolyear" name="schoolyear" class="form-control form-control-lg">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="gender"><h4>Gender Identity</h4></label>
+          <input type="text" name="gender" class="form-control" id="gender" value="<%= @profile.gender %>">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form group col-md-6">
+          <label for="ethnicity"><h4>Ethnicity</h4></label>
+          <select id="ethnicity" name="ethnicity" class="form-control form-control-lg">
+            <option value="African">African</option>
+            <option value="African-American">African-American</option>
+            <option value="White">White</option>
+            <option value="East Asian">East Asian</option>
+            <option value="Southeast Asian">Southeast Asian</option>
+            <option value="South Asian">South Asian</option>
+            <option value="Middle Eastern & North African/Southwest Asian & North African">Middle Eastern & North African/Southwest Asian & North African</option>
+            <option value="Pacific Islander">Pacific Islander</option>
+            <option value="Latinx">Latinx</option>
+            <option value="Native American">Native American</option>
+            <option value="Not Listed">Not Listed</option>
+            <option value="Prefer not to state">Prefer not to state</option>
+          </select>
+        </div>
+        </div>
+        <h4>Check If Any Of The Following Is Applicable</h4>
+          <div class="form-inline">
+            <div class="form-check">
+              <label for="transfer">
+                <input class="form-check-input" type="checkbox" id="transfer">Transfer Student</label>
+            </div>
+          </div>
+          <div class="form-inline">
+            <div class="form-check">
+              <label for="Graduate">
+                <input class="form-check-input" type="checkbox" id="graduate">Graduate Student</label>
+            </div>
+          </div>
+          <div class="form-inline">
+            <div class="form-check">
+              <label for="international">
+                <input class="form-check-input" type="checkbox" id="international">International Student</label>
+            </div>
+          </div>
+
+      <div class="form-group row ">
+        <div class="col-xs-12 center block">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    	</div>
+    </form>
+
+
+<script type="text/javascript">
+function setSelected(a, b) {
+    for (var i=0; i<a.options.length; i++ ){
+        if (a.options[i].value==b){
+          if(a.options[i].value=="Other"){
+            document.getElementById('other1').innerHTML='Other: <input type="text" name="other" value="<%= @profile.schoolyear %>"/>';
+            return;
+          }
+            a.options[i].selected = true;
+            return;
+          }
+    }
+}
+function showfield(name){
+  if(name=='Other')document.getElementById('other1').innerHTML='Other: <input type="text" name="other" class="form-control">';
+  else document.getElementById('other1').innerHTML='';
+}
+setSelected(document.getElementById('schoolyear'),"<%= @profile.schoolyear %>");
+setSelected(document.getElementById('ethnicity'),"<%= @profile.ethnicity %>");
+</script>

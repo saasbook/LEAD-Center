@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2019_04_01_004039) do
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "gender"
+    t.string "major"
+    t.string "schoolyear"
+    t.string "ethnicity"
+    t.boolean "transfer"
+    t.boolean "graduate"
+    t.boolean "international"
+    t.integer "profile_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "options"
     t.string "title"
