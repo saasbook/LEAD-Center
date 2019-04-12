@@ -2,6 +2,10 @@ class ProfileController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
+  def create
+    User.create(params[:user])
+  end
+
   def show
       id = params[:id]
       @profile = User.find(id)
@@ -16,12 +20,7 @@ class ProfileController < ApplicationController
 
   def update
     @profile = User.find(params[:id])
-    @profile.update_attribute(:first_name, params[:first_name])
-    @profile.update_attribute(:last_name, params[:last_name])
-    @profile.update_attribute(:major, params[:major])
-    @profile.update_attribute(:gender, params[:gender])
-    @profile.update_attribute(:grad_year, params[:grad_year])
-    @profile.update_attribute(:ethnicity, params[:ethnicity])
+    @profile.update_attributes!(user_params)
     if params[:transfer]
       @profile.update_attribute(:transfer, true)
     else
@@ -39,4 +38,8 @@ class ProfileController < ApplicationController
     end
     redirect_to show_path
   end
+  private
+  def user_params
+      params.permit(:first_name, :last_name, :major, :gender, :grad_year, :ethnicity, :transfer, :graduate, :international)
+    end
 end

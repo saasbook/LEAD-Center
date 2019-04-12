@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
-
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3B7EA1">
   <div class="container">
 
@@ -100,19 +93,19 @@
         <h4>Check If Any Of The Following Is Applicable</h4>
           <div class="form-inline">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="transfer" name="transfer" >
+                <input class="form-check-input" type="checkbox" id="transfer" name="transfer" <%= 'checked' unless !@profile.transfer %>>
                 <label for="transfer">Transfer Student</label>
             </div>
           </div>
           <div class="form-inline">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="graduate" name="graduate">
+                <input class="form-check-input" type="checkbox" id="graduate" name="graduate" <%= 'checked' unless !@profile.graduate %>>
                 <label for="graduate">Graduate Student</label>
             </div>
           </div>
           <div class="form-inline">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="international" name="international">
+                <input class="form-check-input" type="checkbox" id="international" name="international" <%= 'checked' unless !@profile.international %>>
                 <label for="international">International Student</label>
             </div>
           </div>
@@ -134,18 +127,7 @@ function setSelected(a, b) {
           }
     }
 }
-function setChecked(a, b) {
-        if (b==true){
-            var x = document.getElementById(a);
-            x.checked = true;
-          }
-        return;
-    }
-}
 setSelected(document.getElementById('grad_year'),"<%= @profile.grad_year %>");
 setSelected(document.getElementById('ethnicity'),"<%= @profile.ethnicity %>");
 setSelected(document.getElementById('gender'),"<%= @profile.gender %>");
-setChecked("transfer","<%= @profile.transfer %>");
-setChecked("graduate","<%= @profile.graduate %>");
-setChecked("international","<%= @profile.international %>");
 </script>
