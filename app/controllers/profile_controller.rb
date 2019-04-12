@@ -4,18 +4,18 @@ class ProfileController < ApplicationController
 
   def show
       id = params[:id]
-      @profile = Profile.find(id)
+      @profile = User.find(id)
       @id = id
       session[:id] = id
   end
 
   def edit
-    @profile = Profile.find(session[:id])
+    @profile = User.find(session[:id])
     @id = session[:id]
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = User.find(params[:id])
     @profile.update_attribute(:firstname, params[:firstname])
     @profile.update_attribute(:lastname, params[:lastname])
     @profile.update_attribute(:major, params[:major])
