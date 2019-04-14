@@ -28,3 +28,7 @@ Given /I am logged in/ do
   visit landing_path
   click_button('login-button')
 end
+
+Then /I should see the organizations I am matched with appear 3 at a time/ do
+  expect(page).to have_selector('div.slick-active', count: 3)
+end
