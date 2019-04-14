@@ -13,9 +13,6 @@ gem 'figaro'
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
 gem 'bootstrap'
-# Pagination
-gem 'will_paginate', '> 3.0'
-gem 'will_paginate-bootstrap'
 
 gem 'jquery-rails'
 
