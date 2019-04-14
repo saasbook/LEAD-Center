@@ -3,7 +3,8 @@ class ProfileController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    User.create(params[:user])
+    User.create!(params[:user])
+    redirect_to show_path
   end
 
   def show
