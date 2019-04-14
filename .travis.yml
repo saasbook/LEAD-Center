@@ -2,6 +2,9 @@ language: ruby
 rvm:
   - 2.5.3
 
+addons:
+  chrome: stable
+  
 # make sure production-only gems are not installed
 bundler_args: --without production
 
