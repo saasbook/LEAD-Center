@@ -8,7 +8,7 @@ Given /^(?:|I )am on "(.+)"$/ do |page_name|
 end
 
 Then /I should see a sign in button/ do
-  expect(find_button("login-button").value).to eq("Placeholder Login")
+  expect(page).to have_button('login-button')
 end
 
 Then /I should be redirected to "(.*)"$/ do |page_name|
