@@ -18,7 +18,7 @@
       <button type="button" class="btn btn-finish-quiz" data-dismiss="modal">See Orgs</button>
     <% else %>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip</button>
-      <%= submit_tag('Next Question', class: 'btn btn-warning') %>
+      <%= submit_tag('Next Question', class: 'btn btn-warning', id: 'submit-response-btn') %>
     <% end%>
   </div>
 <% end %>
