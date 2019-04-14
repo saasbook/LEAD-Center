@@ -26,9 +26,6 @@
     <title>Hello, world!</title>
   </head>
   <body>
-  
-  
-
 
 <div class="vertical-center" >
   <div class="container rounded" style="background-color: #FFFFFF; max-width:1000px" >
@@ -38,7 +35,7 @@
           <h1>Communities@Cal</h1>
           <p>Please login through CalNet to continue.</p> 
           <%= form_tag login_path, :method => 'post' do %>
-            <input type="submit" value="Placeholder Login" class="btn-primary"/>
+            <input id="login-button" type="submit" value="Placeholder Login" class="btn-primary"/>
           <% end %>
           <br>
       </div>
