@@ -76,6 +76,7 @@ group :test do
   gem 'database_cleaner' # required by Cucumber
   gem 'factory_bot_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
+  gem 'rails-controller-testing' # for some rspec testing features
 end
 
 # make sure the following gems are in your production group:

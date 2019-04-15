@@ -65,10 +65,11 @@ Then /I should (not )?see the quiz modal/ do |not_see|
 end
 
 When /I repeatedly answer questions/ do
-  choose('selected_option', :match => :first)
+  sleep 3
+  choose('selected_option', wait: 3, :match => :first)
   click_button('submit-response-btn')
   sleep 3 # Sleep for 3 seconds wait for next question to load
-  choose('selected_option', :match => :first)
+  choose('selected_option', wait: 3, :match => :first)
   click_button('submit-response-btn')
 end
 
