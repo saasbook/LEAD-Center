@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #00B2A9">
   <div class="container">
 
@@ -65,29 +55,18 @@
         </div>
         <div class="col-xs-6">
           <label for="transfer"><h4>Transfer Student:</h4></label>
-          <span class="transfer" id='transfer'></span>
+          <span class="transfer" id='transfer'><%= @profile.transfer ? 'Yes' : 'No' %></span>
         </div>
         <div class="col-xs-6">
           <label for="graduate"><h4>Graduate Student:</h4></label>
-          <span class="graduate" id='graduate'></span>
+          <span class="graduate" id='graduate'><%= @profile.graduate ? 'Yes' : 'No' %></span>
         </div>
         <div class="col-xs-6">
           <label for="international"><h4>International Student:</h4></label>
-          <span class="international" id='international'></span>
+          <span class="international" id='international' ><%= @profile.international ? 'Yes' : 'No' %></span>
         </div>
         <form action= "<%= @id %>/edit" method="get" id="edit">
           <div class="col-xs-12  text-center">
           <button class="btn btn-primary" type="submit">Edit Profile</button>
           </div>
         </form>
-
-        <script type="text/javascript">
-        function setYesNo(a,b) {
-            if (a==true) document.getElementById(b).innerHTML = "Yes";
-            else document.getElementById(b).innerHTML = "No";
-            return;
-        }
-        setYesNo(<%= @profile.transfer %>,"transfer");
-        setYesNo(<%= @profile.international %>,"international");
-        setYesNo(<%= @profile.graduate %>,"graduate");
-        </script>
