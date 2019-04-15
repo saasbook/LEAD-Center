@@ -66,11 +66,11 @@ end
 
 When /I repeatedly answer questions/ do
   sleep 3
-  choose('selected_option', wait: 3, :match => :first)
-  click_button('submit-response-btn')
-  sleep 3 # Sleep for 3 seconds wait for next question to load
-  choose('selected_option', wait: 3, :match => :first)
-  click_button('submit-response-btn')
+  while page.has_button?('submit-response-btn') do
+    choose('selected_option', wait: 3, :match => :first)
+    click_button('submit-response-btn')
+    sleep 3
+  end
 end
 
 Then /I should see a finished quiz page/ do
