@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #00B2A9">
+  <div class="container">
+
+  <a class="navbar-brand" href="/">communities<b>@Cal</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<hr>
+
+   <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+    <hr>
+        <div class="col-xs-6">
+          <label for="firstname"><h4>First name:</h4></label>
+          <span class="firstname"><%= @profile.first_name %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="lastname"><h4>Last name:</h4></label>
+          <span class="lastname"><%= @profile.last_name %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="major"><h4>Major:</h4></label>
+          <span class="major"><%= @profile.major %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="schoolyear"><h4>Graduation Year:</h4></label>
+          <span class="schoolyear"><%= @profile.grad_year %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="gender"><h4>Gender Identity:</h4></label>
+          <span class="gender"><%= @profile.gender %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="ethnicity"><h4>Ethnicity:</h4></label>
+          <span class="ethnicity"><%= @profile.ethnicity %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="transfer"><h4>Transfer Student:</h4></label>
+          <span class="transfer" id='transfer'><%= @profile.transfer ? 'Yes' : 'No' %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="graduate"><h4>Graduate Student:</h4></label>
+          <span class="graduate" id='graduate'><%= @profile.graduate ? 'Yes' : 'No' %></span>
+        </div>
+        <div class="col-xs-6">
+          <label for="international"><h4>International Student:</h4></label>
+          <span class="international" id='international' ><%= @profile.international ? 'Yes' : 'No' %></span>
+        </div>
+        <form action= "<%= @id %>/edit" method="get" id="edit">
+          <div class="col-xs-12  text-center">
+          <button class="btn btn-primary" type="submit">Edit Profile</button>
+          </div>
+        </form>

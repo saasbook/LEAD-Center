@@ -57,3 +57,14 @@
     can_skip: false
   )
 
+  User.create(
+    first_name: 'Tony',
+    last_name: 'Li',
+    gender: 'Male',
+    major: 'IEOR',
+    grad_year: '2020',
+    ethnicity: 'East Asian',
+    transfer: false,
+    graduate: false,
+    international: false
+  )

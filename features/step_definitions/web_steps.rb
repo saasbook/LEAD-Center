@@ -13,15 +13,6 @@ Then /(.*) seed questions should exist/ do |n_seeds|
   Question.count.should be n_seeds.to_i
 end
 
-Given /^(?:|I )am on "(.+)"$/ do |page_name|
-  if page_name == "landing page"
-    visit landing_path
-  end
-  if page_name == "home page"
-    visit root_path
-  end
-end
-
 Then /I should see a sign in button/ do
   expect(page).to have_button('login-button')
 end
