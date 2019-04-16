@@ -23,7 +23,7 @@ Given /^(?:|I )am on "(.+)"$/ do |page_name|
 end
 
 Then /I should see a sign in button/ do
-  expect(find_button("login-button").value).to eq("Placeholder Login")
+  expect(page).to have_button('login-button')
 end
 
 Then /I should be redirected to "(.*)"$/ do |page_name|
@@ -74,7 +74,7 @@ When /I repeatedly answer questions/ do
 end
 
 Then /I should see a finished quiz page/ do
-  find('button.btn-finish-quiz').text.should eq('See Orgs')
+  expect(page).to have_button('finish-quiz')
 end
 
 Then /I should not see a "Start" button/ do
