@@ -3,13 +3,13 @@
 # newer version of cucumber-rails. Consider adding your own code to a new file
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
+require 'simplecov'
+SimpleCov.start 'rails'
 
 require 'capybara'
 require 'cucumber/rails'
-require 'simplecov'
 require 'selenium-webdriver'
-
-SimpleCov.start 'rails'
+require 'factory_bot'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -21,6 +21,7 @@ SimpleCov.start 'rails'
 
 # 	Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 # end
+World(FactoryBot::Syntax::Methods)
 
 capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
   'chromeOptions' => {
@@ -57,9 +58,20 @@ ActionController::Base.allow_rescue = false
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 begin
-  DatabaseCleaner.strategy = :transaction
+  require 'database_cleaner'
+  require 'database_cleaner/cucumber'
+
+  DatabaseCleaner.strategy = :truncation
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+end
+
+Before do
+  DatabaseCleaner.start
+end
+
+After do |scenario|
+  DatabaseCleaner.clean
 end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.

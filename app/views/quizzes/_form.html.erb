@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="quiz-modal" tabindex="-1" role="dialog" aria-labelledby="quiz-modalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div id='modal-content' class="modal-content">
       <div class="modal-header">
@@ -16,6 +16,6 @@
 
 <%= form_tag(quizzes_path, method: "post", remote: true) do %>
   <div class="text-center">
-    <%= submit_tag("Start", id: 'start-quiz-btn', class: 'btn start-quiz-btn btn-outline-warning', 'data-toggle': 'modal', 'data-target': '#exampleModalCenter') %>
+    <%= submit_tag("Start", id: 'start-quiz-btn', class: 'btn start-quiz-btn btn-outline-warning', 'data-toggle': 'modal', 'data-target': '#quiz-modal') %>
   </div>
 <% end %>

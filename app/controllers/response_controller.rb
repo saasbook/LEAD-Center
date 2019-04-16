@@ -5,10 +5,6 @@ class ResponseController < ApplicationController
     @response = Response.new
   end
 
-  # GET /response/1/edit
-  def edit
-  end
-
   # POST /response
   # POST /response.json
   def create
@@ -16,6 +12,7 @@ class ResponseController < ApplicationController
     question = Question.find(params[:question_id])
     categories = question.options[params[:selected_option]]
     next_question = question.next_question[params[:selected_option]]
+    # TODO: Update the current question of quiz belonging to user
     if next_question.nil?
       @question = nil
     else
@@ -28,7 +25,6 @@ class ResponseController < ApplicationController
       :quiz_id => 1
     }
     @response = Response.new(responses_params)
-    # binding.pry
     respond_to do |format|
       if @response.save
         format.html { render :partial => 'questions/form' }
@@ -42,5 +38,5 @@ class ResponseController < ApplicationController
     end
   end
 
-
+  # TODO: add strong parameters to response create
 end
