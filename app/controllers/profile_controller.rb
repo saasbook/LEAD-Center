@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
 
   def create
     User.create!(params[:user])
-    redirect_to show_path
+    redirect_to show_profile_path
   end
 
   def show
@@ -37,7 +37,7 @@ class ProfileController < ApplicationController
     else
       @profile.update_attribute(:international, false)
     end
-    redirect_to show_path
+    redirect_to show_profile_path
   end
   private
   def user_params

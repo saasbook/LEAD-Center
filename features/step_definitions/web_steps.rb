@@ -13,7 +13,6 @@ Then /(.*) seed questions should exist/ do |n_seeds|
   Question.count.should be n_seeds.to_i
 end
 
-
 Then /I should see a sign in button/ do
   expect(page).to have_button('login-button')
 end
