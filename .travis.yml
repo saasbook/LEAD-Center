@@ -2,6 +2,11 @@ language: ruby
 rvm:
   - 2.5.3
 
+dist: trusty
+addons:
+  chrome: stable
+before_install:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 # make sure production-only gems are not installed
 bundler_args: --without production
 
