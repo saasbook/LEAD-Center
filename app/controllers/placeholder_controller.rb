@@ -26,6 +26,14 @@ class PlaceholderController < ApplicationController
       '*African American Student Development*', 
       '*Berkeley Art Studio*', '*LEAD Center*', 
       '*Native American Student Development*',
+      '(Mindful) at Berkeley', 
+      '*African American Student Development*', 
+      '*Berkeley Art Studio*', '*LEAD Center*', 
+      '*Native American Student Development*',
+      '(Mindful) at Berkeley', 
+      '*African American Student Development*', 
+      '*Berkeley Art Studio*', '*LEAD Center*', 
+      '*Native American Student Development*',
     ]
   end
 
