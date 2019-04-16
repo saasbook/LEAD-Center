@@ -11,6 +11,8 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   case page_name
   when /^the profile page$/ then visit "/profile/1"
   when /^the edit page$/ then visit "profile/1/edit"
+  when /^"landing page"$/ then visit landing_path
+  when /^"home page"$/ then visit root_path
   end
 end
 
@@ -38,11 +40,11 @@ Then /I should see "(.*)" after "(.*)"$/ do |e1, e2|
   page.body.include?(e2 + '[/.*/]' + e1)
 end
 
-Then /^(?:|I )should see "((\w|\s)*)"$/ do |e1|
+Then /^(?:|I )should see "([^"]*)"$/ do |e1|
   page.body.include?(e1)
 end
 
-Then /^(?:|I )should not see "((\w|\s)*)"$/ do |e1|
+Then /^(?:|I )should not see "([^"]*)"$/ do |e1|
   !page.body.include?(e1)
 end
 
