@@ -15,6 +15,15 @@ class SessionsController < ApplicationController
     redirect_to root_url, :flash => "Authentication error"
   end
 
+  def signin
+    redirect_to "/auth/cas"
+  end
+
+  def signout
+    reset_session
+    redirect_to root_url
+  end
+
   protected
 
   def auth_hash

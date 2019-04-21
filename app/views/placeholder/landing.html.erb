@@ -34,8 +34,8 @@
           <%=image_tag("LEAD logo.png", :align=> "middle", :style => "width:300px")%>
           <h1>Communities@Cal</h1>
           <p>Please login through CalNet to continue.</p> 
-          <%= form_tag login_path, :method => 'post' do %>
-            <input id="login-button" type="submit" value="Placeholder Login" class="btn-primary"/>
+          <%= form_tag signin_path, :method => 'get' do %>
+            <input id="login-button" type="submit" value="Login" class="btn btn-primary"/>
           <% end %>
           <br>
       </div>
