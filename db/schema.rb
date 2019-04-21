@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_005617) do
+ActiveRecord::Schema.define(version: 2019_04_21_041626) do
 
   create_table "questions", force: :cascade do |t|
     t.text "options"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_005617) do
     t.datetime "updated_at", null: false
     t.string "last_name"
     t.string "first_name"
+    t.string "uid"
   end
 
 end
