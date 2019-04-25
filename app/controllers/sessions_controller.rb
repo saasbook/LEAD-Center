@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     auth = auth_hash
     @user = User.where(:uid => auth['uid'].to_s).first || User.create_new_user(auth)
     reset_session
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     session[:logged_in] = true
     redirect_to root_url
   end
