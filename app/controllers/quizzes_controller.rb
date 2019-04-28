@@ -24,16 +24,9 @@ class QuizzesController < ApplicationController
       if @quiz.save
         format.js
       else
-        flash[:notice] = "There was a problem creating quiz."
-        format.html { redirect_to root_path }
+        format.js { flash[:alert] = 'There was a problem creating quiz.' }
       end
     end
   end
 
-  private
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def quiz_params
-      params.fetch(:quiz, {})
-    end
 end

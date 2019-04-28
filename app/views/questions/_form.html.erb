@@ -1,5 +1,14 @@
 <%= form_tag(response_index_path, method: 'post', class: 'form-check', remote: true, id: 'response-form') do %>
   <div class="modal-body text-left" id='question-container'>
+    <% if alert %>
+      <!-- Alert if problem saving response. -->
+      <p class="alert alert-warning alert-dismissible fade show">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% end %>
     <% if @question.nil? %>
       <h5 class='card-title'>You finished the quiz!</h5>
     <% else %>

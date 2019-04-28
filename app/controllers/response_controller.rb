@@ -12,16 +12,8 @@ class ResponseController < ApplicationController
     #params contains question id and categories
     question = Question.find(params[:question_id])
     content = question.options[params[:selected_options]]
-    # next_question = question.next_question[params[:selected_option]]
     queue_content = question.question_queue_content(params[:selected_options])
-    next_question = @quiz.update_quiz_state(queue_content[:question_queue])
-    # TODO: Update the current question of quiz belonging to user
-    if next_question.nil?
-      @question = nil
-    else
-      @question = Question.find(next_question)
-    end
-    @response = Response.new
+    # Create response from question
     responses_params = {
       :question_id => question.id,
       :content => queue_content[:content],
@@ -31,13 +23,18 @@ class ResponseController < ApplicationController
     @response = Response.new(responses_params)
     respond_to do |format|
       if @response.save
-        format.html { render :partial => 'questions/form' }
-        format.json { render json: @question }
+        # If response successfully saves, then update the quiz and get next question.
+        next_question = @quiz.update_quiz_state(queue_content[:question_queue])
+        if next_question.nil?
+          @question = nil
+        else
+          @question = Question.find(next_question)
+        end
         format.js
-        # format.json { render :show, status: :created, location: @quiz }
       else
-        format.html { render :new }
-        format.json { render json: @response.errors, status: :unprocessable_entity }
+        # If response fails to save, then show the same question to retry.
+        @question = question
+        format.js { flash.now[:alert] = 'There was a problem answering question. Please try again.' }
       end
     end
   end
