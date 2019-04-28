@@ -4,7 +4,7 @@ Given /the following questions exist/ do |questions_table|
       title: question['title'],
       options: eval(question['options']),
       next_question: eval(question['next_question']),
-      can_skip: question['can_skip']
+      question_type: question['question_type']
     )
   end
 end
@@ -56,16 +56,16 @@ Then /I should (not )?see the quiz modal/ do |not_see|
 end
 
 When /I repeatedly answer questions/ do
-  sleep 3
+  sleep 2
   while page.has_button?('submit-response-btn') do
-    choose('selected_option', wait: 3, :match => :first)
+    check('selected_options_', wait: 3, :match => :first)
     click_button('submit-response-btn')
-    sleep 3
+    sleep 2
   end
 end
 
 Then /I should see a finished quiz page/ do
-  expect(page).to have_button('finish-quiz')
+  expect(page).to have_link('finish-quiz')
 end
 
 Then /I should not see a "Start" button/ do

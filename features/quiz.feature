@@ -5,10 +5,11 @@ Feature: Interests Quiz
 
   Background:
     Given the following questions exist:
-    | title | options | next_question | can_skip |
-    | First question. | { 'yes' => ['Sports', 'Wellness', 'Outdoors'], 'no' => ['Food', 'Indoors'] } | { 'yes' => 2, 'no' => 2 } | false |
-    | Last question | { 'yes' => ['Greek'], 'no' => ['Some Category', 'Indoors'] } | { 'yes' => nil, 'no' => nil } | false |
-    Then 2 seed questions should exist
+    | title | options | next_question | question_type |
+    | First question. | { 'Academic' => ['Academic', 'Campus Departments', 'Departmental Organizations'], 'Advocacy' => ['Academic', 'Cultural & Ethnic', 'Environmental & Sustainability'] } | { 'Academic' => 2, 'Advocacy' => 3} | 'categories' |
+    | Second question based on Academic. | { 'Academic Advocacy' => ['Academic','Advocacy','Environmental', 'Social Activism'], 'Academic Enrichment' => ['Academic', 'Academic - Honor Society', 'Educational'] } | { 'Academic Advocacy' => nil, 'Academic Enrichment' => nil} | 'interests' |
+    | Third question based on Advocacy. | { 'Cultural/Ethnic' => ['Advocacy', 'Cultural', 'Ethnic', 'Multicultural', 'Native American'], 'Educational' => ['Advocacy', 'Educational'] } | { 'Cultural/Ethnic' => nil, 'Educational' => nil} | 'interests' |
+    Then 3 seed questions should exist
 
   Scenario: See Start Quiz button when logged in
     Given I am logged in
