@@ -6,7 +6,8 @@ class Question < ApplicationRecord
     content = []
     selected_options.each do |option|
       id = self.next_question[option]
-      content << self.options[option]
+      # content << self.options[option]
+      content = content.concat self.options[option]
       if id
         question_queue << id
       end
