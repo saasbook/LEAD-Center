@@ -8,14 +8,14 @@ class ResponseController < ApplicationController
   # POST /response
   # POST /response.json
   def create
+    @quiz = Quiz.find(params[:quiz_id])
     #params contains question id and categories
     question = Question.find(params[:question_id])
     content = question.options[params[:selected_options]]
     # next_question = question.next_question[params[:selected_option]]
-    queue_content = Question.question_queue_content(params[:selected_options])
+    queue_content = question.question_queue_content(params[:selected_options])
+    next_question = @quiz.update_quiz_state(queue_content[:question_queue])
     # TODO: Update the current question of quiz belonging to user
-    @quiz = Quiz.find(params[:quiz_id])
-    binding.pry
     if next_question.nil?
       @question = nil
     else
@@ -24,8 +24,9 @@ class ResponseController < ApplicationController
     @response = Response.new
     responses_params = {
       :question_id => question.id,
-      :categories => categories,
-      :quiz_id => 1
+      :content => queue_content[:content],
+      :quiz_id => @quiz.id,
+      :is_category => queue_content[:question_type] == 'categories'
     }
     @response = Response.new(responses_params)
     respond_to do |format|

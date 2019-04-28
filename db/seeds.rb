@@ -18,7 +18,7 @@
       'Advocacy' => 3,
       'Creativity' => 4,
     },
-    can_skip: false
+    question_type: 'categories'
   )
   Question.create(
     title: 'Based on your interest in Academics, what are you specifically looking for:',
@@ -44,7 +44,7 @@
       'Service' => nil,
       'Social Environments' => nil,
     },
-    can_skip: false
+    question_type: 'interests'
   )
   Question.create(
     title: 'Based on your interest in Advocacy, what are you specifically looking for:',
@@ -72,7 +72,7 @@
       'Service' => nil,
       'Social Activism' => nil,
     },
-    can_skip: false
+    question_type: 'interests'
   )
   Question.create(
     title: 'Based on your interest in Creativity, what are you specifically looking for:',
@@ -100,7 +100,7 @@
       'Service' => nil,
       'Social Activism' => nil,
     },
-    can_skip: false
+    question_type: 'interests'
   )
   User.create(
     first_name: 'Tony',

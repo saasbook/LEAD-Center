@@ -2,19 +2,19 @@ class Question < ApplicationRecord
   serialize :options, Hash
   serialize :next_question, Hash
   def question_queue_content(selected_options)
-    question_ids = []
+    question_queue = []
     content = []
     selected_options.each do |option|
       id = self.next_question[option]
       content << self.options[option]
       if id
-        question_ids << id
+        question_queue << id
       end
     end
     return {
-      :question_ids => question_ids, 
+      :question_queue => question_queue, 
       :content => content, 
-      :response_type => self.response_type,
+      :question_type => self.question_type,
     }
   end
 end
