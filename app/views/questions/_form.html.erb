@@ -6,11 +6,12 @@
       <h5 class='card-title'><%= @question.title %></h5>
       <div id='options-container'>
         <% @question.options.each do |option_title, _| %>
-          <label><%= radio_button_tag(:selected_option, option_title) %> <%= option_title %></label>
+          <label><%= check_box_tag("selected_options[]", option_title) %> <%= option_title %></label>
           <br>
         <% end %>
       </div>
       <%= hidden_field_tag(:question_id, @question.id) %>
+      <%= hidden_field_tag(:quiz_id, @quiz.id) %>
     <% end %>
   </div>
   <div class="modal-footer">

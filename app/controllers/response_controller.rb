@@ -10,9 +10,12 @@ class ResponseController < ApplicationController
   def create
     #params contains question id and categories
     question = Question.find(params[:question_id])
-    categories = question.options[params[:selected_option]]
-    next_question = question.next_question[params[:selected_option]]
+    content = question.options[params[:selected_options]]
+    # next_question = question.next_question[params[:selected_option]]
+    queue_content = Question.question_queue_content(params[:selected_options])
     # TODO: Update the current question of quiz belonging to user
+    @quiz = Quiz.find(params[:quiz_id])
+    binding.pry
     if next_question.nil?
       @question = nil
     else
