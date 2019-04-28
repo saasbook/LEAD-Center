@@ -23,8 +23,8 @@ class ProfileController < ApplicationController
     @profile = User.find(params[:id])
     @profile.update_attributes!(user_params)
     @profile.update_attribute(:transfer, params[:transfer] ? true : false)
-    @profile.update_attribute(:transfer, params[:graduate] ? true : false)
-    @profile.update_attribute(:transfer, params[:international] ? true : false)
+    @profile.update_attribute(:graduate, params[:graduate] ? true : false)
+    @profile.update_attribute(:international, params[:international] ? true : false)
     redirect_to show_profile_path
   end
   private
