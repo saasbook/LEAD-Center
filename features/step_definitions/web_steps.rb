@@ -56,7 +56,7 @@ Then /I should (not )?see the quiz modal/ do |not_see|
 end
 
 When /I repeatedly answer questions/ do
-  sleep 2
+  sleep 2 # Sleeps are necessary here to allow for CSS transition times
   while page.has_button?('submit-response-btn') do
     check('selected_options_', wait: 3, :match => :first)
     click_button('submit-response-btn')
