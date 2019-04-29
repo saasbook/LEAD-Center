@@ -1,0 +1,45 @@
+{
+  "pageNumber": 1,
+  "totalPages": 2,
+  "items":[{
+  "organizationId": 0,
+  "name": "Placeholder name",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "type": "academic",
+  "categories": [
+        {  "categoryName": "educational"},
+        {  "categoryName": "honor society"}
+      ]
+  },
+  {"organizationId": 1,
+  "name": "Academic Advocacy Group",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "type": "academic",
+  "categories": [
+        {  "categoryName": "community service"},
+        {  "categoryName": "advocacy"}
+      ]
+  },
+  {"organizationId": 2,
+  "name": "Foodies",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "type": "social",
+  "categories": [
+        {  "categoryName": "social"},
+        {  "categoryName": "food"}
+      ]
+  },
+  {"organizationId": 3,
+  "name": "Art Club",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "type": "creativity",
+  "categories": [
+        {  "categoryName": "art"},
+        {  "categoryName": "social"}
+      ]
+  }]
+}

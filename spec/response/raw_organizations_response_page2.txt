@@ -1,0 +1,17 @@
+{
+  "pageNumber": 2,
+  "totalPages": 2,
+  "items":[{
+  "organizationId": 4,
+  "name": "Alpha Alpha Alpha",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "type": "greek life",
+  "categories": [
+        {  "categoryName": "greek life"},
+        {  "categoryName": "social"},
+        {  "categoryName": "ethnic"}
+      ]
+  }
+  ]
+}
