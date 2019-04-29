@@ -25,7 +25,7 @@
   </div>
   <div class="modal-footer">
     <% if @question.nil? %>
-      <%= link_to "See Orgs", finish_quiz_path(:quiz_id => @quiz.id), :id => 'finish-quiz', :class => "btn btn-finish-quiz" %>
+      <%= link_to "See Orgs", finish_quiz_path(:quiz_id => @quiz.id), :id => 'finish-quiz', :class => "btn btn-finish-quiz", :remote => true, "data-dismiss" => "modal" %>
     <% else %>
       <%= submit_tag('Next Question', class: 'btn btn-warning', id: 'submit-response-btn') %>
     <% end%>

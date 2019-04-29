@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log('hey wassup!');
   $('.orgs').slick({
     dots: true,
     infinite: false,

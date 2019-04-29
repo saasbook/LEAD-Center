@@ -19,7 +19,7 @@ class Organization
 	
         top_orgs = []
         orgs.each do |i|
-            if categories == nil || categories.size == 0 || categories.include?(i['type'])
+            if categories == nil || categories.size == 0 || categories.include?(i['type'].titleize)
                 top_orgs.push(Organization.new(i['organizationId'], i['name'], i['description'], i['profileImageUrl'], i['type'], i['categories']))
             end
         end
@@ -51,14 +51,13 @@ class Organization
 	  
             break if pageNumber >= totalPages
         end
-        
         return orgs
     end
 
     def count_interest(i)
         count = 0
         self.interests.each do |ctg|
-            if i.include?(ctg['categoryName'])
+            if i.include?(ctg['categoryName'].titleize)
                 count += 1
             end
         end

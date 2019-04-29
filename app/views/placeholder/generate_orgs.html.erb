@@ -20,7 +20,15 @@
   </div>  
   </div>
 </nav>
-
+<% if alert %>
+  <!-- Alert if problem saving response. -->
+  <p class="alert alert-warning alert-dismissible fade show">
+    <%= alert %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </p>
+<% end %>
 <% if @showQuizWarning %>
 <div id='home-hero' class="jumbotron text-center" style="background-color: #FF000">
   <h3 class='home-title'>FIND YOUR COMMUNITY AT CAL.<br/>GET MATCHED WITH ORGANIZATIONS NOW.</h3>
