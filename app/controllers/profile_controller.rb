@@ -15,8 +15,8 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @profile = User.find(session[:id])
-    @id = session[:id]
+    @profile = User.find(params[:id])
+    @id = params[:id]
   end
 
   def update
