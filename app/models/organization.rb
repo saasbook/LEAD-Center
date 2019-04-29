@@ -19,7 +19,7 @@ class Organization
 	
         top_orgs = []
         orgs.each do |i|
-            if categories == nil || categories.include?(i['type'])
+            if categories == nil || categories.size == 0 || categories.include?(i['type'])
                 top_orgs.push(Organization.new(i['organizationId'], i['name'], i['description'], i['profileImageUrl'], i['type'], i['categories']))
             end
         end
@@ -38,8 +38,13 @@ class Organization
 	
         loop do
             pageNumber += 1
-            response = RestClient.get url, :params => {:page => pageNumber, :key => Figaro.env.callink_key}
-            parsed = JSON.parse(response)
+            begin
+                response = RestClient.get url, :params => {:page => pageNumber, :key => Figaro.env.callink_key}
+                parsed = JSON.parse(response)
+            rescue RestClient::ExceptionWithResponse => err # We don't have the keys yet, so on 401 error display placeholder orgs
+                placeholder = File.new("spec/response/raw_organizations_response.txt")
+                parsed = JSON.parse(placeholder.read)
+            end
             orgs += parsed['items']
             totalPages = parsed['totalPages']
             pageNumber = parsed['pageNumber']

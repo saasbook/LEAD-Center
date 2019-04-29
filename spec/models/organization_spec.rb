@@ -19,7 +19,7 @@ RSpec.describe Organization, type: :model do
 
     it 'returns an iterable of organizations' do
       orgs = Organization.get_organizations(3, nil, nil);
-      expect(orgs).to respond_to(:each)
+      expect(orgs).to respond_to(:each) 
       expect(orgs[0]).to be_instance_of Organization
     end
 

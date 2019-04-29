@@ -6,13 +6,13 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= org %></h5>
+          <h5 class="modal-title" id="exampleModalLabel"><%= org.name %></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Description of <%= org %>.
+          <%= org.description %>.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -26,9 +26,9 @@
   <div class='orgs'>
     <% @organizations.each_with_index do |org, i| %>
       <div class="snip1104 blue">
-        <img src="https://images.unsplash.com/photo-1504283242485-c68c10b5dbb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80" />
+        <%= image_tag(org.imageUrl) %>
         <figcaption>
-          <h4><%= org %></h2>
+          <h4><%= org.name %></h2>
         </figcaption>
         <div class='fig-holder'>
           <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#<%= 'modal-' + i.to_s %>">Learn More</button>
