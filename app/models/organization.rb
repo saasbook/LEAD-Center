@@ -38,7 +38,7 @@ class Organization
 	
         loop do
             pageNumber += 1
-            response = RestClient.get url, :params => {:page => pageNumber}
+            response = RestClient.get url, :params => {:page => pageNumber, :key => Figaro.env.callink_key}
             parsed = JSON.parse(response)
             orgs += parsed['items']
             totalPages = parsed['totalPages']
