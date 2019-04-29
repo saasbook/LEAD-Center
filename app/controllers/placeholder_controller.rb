@@ -37,4 +37,9 @@ class PlaceholderController < ApplicationController
     ]
   end
 
+  def generate_orgs
+    quiz_results = Quiz.find(params[:quiz_id]).get_content
+    #here are the interests and categories needed for the API call
+    #i.e to get interests: quiz_results[:interests]
+  end
 end

@@ -8,4 +8,14 @@ RSpec.describe ResponseController, type: :controller do
       expect(assigns(:response)).not_to be_nil
     end
   end
+
+  describe 'POST create' do
+    fixtures :all
+
+    it 'flashes alert' do
+      allow_any_instance_of(Response).to receive(:save).and_return(false)
+      post :create, format: :js, params: {:question_id => 1, :quiz_id => 1, :selected_options => ['Academic']}
+      expect(flash[:alert]).to eq 'There was a problem answering question. Please try again.'
+    end
+  end
 end
