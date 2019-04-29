@@ -1,0 +1,38 @@
+question_1:
+  id: 1
+  title: 'First question. Categories type.'
+  options: {
+    Academic: ['Academic', 'Campus Departments', 'Departmental Organizations', 'Professional'],
+    Advocacy: ['Academic', 'Cultural & Ethnic', 'Environmental & Sustainability', 'Health & Wellness', 'LGBTQ+', 'Political & Advocacy', 'Professional', 'RRC', 'Service']
+  }
+  next_question: {
+    Academic: 2,
+    Advocacy: 3
+  }
+  question_type: 'categories'
+
+question_2:
+  id: 2
+  title: 'Second question. Interests type based on Academics.'
+  options: {
+    Academic Advocacy: ['Academic','Advocacy','Environmental', 'Social Activism', 'Sustainability'],
+    Academic Enrichment: ['Academic', 'Academic - Honor Society', 'Educational']
+  }
+  next_question: {
+    Academic Advocacy: null,
+    Academic Enrichment: null
+  }
+  question_type: 'interests'
+
+question_3:
+  id: 3
+  title: 'Second question. Interests type based on Academics.'
+  options: {
+    Cultural/Ethnic: ['Advocacy', 'Cultural', 'Ethnic', 'Multicultural', 'Native American'],
+    Educational: ['Advocacy', 'Educational']
+  }
+  next_question: {
+    Cultural/Ethnic: null,
+    Educational: null
+  }
+  question_type: 'interests'

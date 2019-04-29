@@ -7,56 +7,101 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
   Question.create(
-    title: 'Are you interested in Athletics?',
+    title: 'What reasons are you looking to get involved in extracurricular activities?',
     options: {
-      'yes' => ['Sports', 'Wellness', 'Outdoors'],
-      'no' => ['Food', 'Indoors']
+      'Academic' => ['Academic', 'Campus Departments', 'Departmental Organizations', 'Professional'],
+      'Advocacy' => ['Academic', 'Cultural & Ethnic', 'Environmental & Sustainability', 'Health & Wellness', 'LGBTQ+', 'Political & Advocacy', 'Professional', 'RRC', 'Service'],
+      'Creativity' => ['Arts', 'Media & Film', 'Performing Arts', 'Publication', 'Recreational']
     },
     next_question: {
-      'yes' => 2,
-      'no' => 2
+      'Academic' => 2,
+      'Advocacy' => 3,
+      'Creativity' => 4,
     },
-    can_skip: false
+    question_type: 'categories'
   )
   Question.create(
-    title: 'Which of the following appeals the most to you?',
+    title: 'Based on your interest in Academics, what are you specifically looking for:',
     options: {
-      'Video Games' => ['Gaming'],
-      'Hiking' => ['Sports', 'Nature'],
-      'Cooking' => ['Food']
+      'Academic Advocacy' => ['Academic','Advocacy','Environmental', 'Social Activism', 'Sustainability'],
+      'Academic Enrichment' => ['Academic', 'Academic - Honor Society', 'Educational'],
+      'Business Orientation' => ['Academic', 'Business', 'Entreprenuerial', 'Professional Development', 'Technology'],
+      'Career Planning' => ['Academic', 'Academic - Pre-Professional', 'Career Planning', 'Medical', 'Engineering', 'Professional Development', 'Law'],
+      'Leadership Opportunities' => ['Academic', 'Leadership', 'Professional Development'],
+      'Major Oriented Orgs' => ['Academic', 'Academic - Departmental', 'Engineering', 'Medical', 'Law'],
+      'Research' => ['Academic', 'Academic - Research'],
+      'Service' => ['Academic', 'Community Service', 'Service - Community Involvement', 'Service - Outreach'],
+      'Social Environments' => ['Academic', 'Social'],
     },
     next_question: {
-      'Video Games' => 3,
-      'Hiking' => 3,
-      'Cooking' => 3
+      'Academic Advocacy' => nil,
+      'Academic Enrichment' => nil,
+      'Business Orientation' => nil,
+      'Career Planning' => nil,
+      'Leadership Opportunities' => nil,
+      'Major Oriented Orgs' => nil,
+      'Research' => nil,
+      'Service' => nil,
+      'Social Environments' => nil,
     },
-    can_skip: true
+    question_type: 'interests'
   )
   Question.create(
-    title: 'Are you interested in Greek Life?',
+    title: 'Based on your interest in Advocacy, what are you specifically looking for:',
     options: {
-      'yes' => ['Greek', 'Professional', 'Business'],
-      'no' => ['Food', 'Indoors']
+      'Cultural/Ethnic' => ['Advocacy', 'Cultural', 'Ethnic', 'Multicultural', 'Native American'],
+      'Educational' => ['Advocacy', 'Educational'],
+      'Environment & Sustainability' => ['Advocacy', 'Environmental', 'Environmental Groups', 'Sustainability'],
+      'Faith, Religion, & Spiritual' => ['Advocacy', 'Faith, Religion, & Spiritual'],
+      'Gender & Sexuality' => ['Advocacy', 'Gender & Sexuality', 'Gender and Lesbian, Gay, Bisexual and Transgender Groups', 'Intersections of Identity', 'LGBTQI'],
+      'Health & Wellness' => ['Advocacy', 'Health & wellness', 'Engineering', 'Medical', 'Law'],
+      'Political' => ['Advocacy', 'Democracy', 'Political', 'Politically Affiliated'],
+      'Publications & Media' => ['Advocacy', 'Journals', 'Publications'],
+      'Service' => ['Advocacy', 'Community Service', 'Fundraising & Philanthropy'],
+      'Social Activism' => ['Advocacy', 'Law', 'Social Activism']
     },
     next_question: {
-      'yes' => 4,
-      'no' => 4
+      'Cultural/Ethnic' => nil,
+      'Educational' => nil,
+      'Environment & Sustainability' => nil,
+      'Faith, Religion, & Spiritual' => nil,
+      'Gender & Sexuality' => nil,
+      'Health & Wellness' => nil,
+      'Political' => nil,
+      'Publications & Media' => nil,
+      'Service' => nil,
+      'Social Activism' => nil,
     },
-    can_skip: false
+    question_type: 'interests'
   )
   Question.create(
-    title: 'This is the last question? Should close the modal.',
+    title: 'Based on your interest in Creativity, what are you specifically looking for:',
     options: {
-      'yes' => ['Greek', 'Professional', 'Business'],
-      'no' => ['Food', 'Video Games']
+      'Cultural/Ethnic' => ['Advocacy', 'Cultural', 'Ethnic', 'Multicultural', 'Native American'],
+      'Educational' => ['Advocacy', 'Educational'],
+      'Environment & Sustainability' => ['Advocacy', 'Environmental', 'Environmental Groups', 'Sustainability'],
+      'Faith, Religion, & Spiritual' => ['Advocacy', 'Faith, Religion, & Spiritual'],
+      'Gender & Sexuality' => ['Advocacy', 'Gender & Sexuality', 'Gender and Lesbian, Gay, Bisexual and Transgender Groups', 'Intersections of Identity', 'LGBTQI'],
+      'Health & Wellness' => ['Advocacy', 'Health & wellness', 'Engineering', 'Medical', 'Law'],
+      'Political' => ['Advocacy', 'Democracy', 'Political', 'Politically Affiliated'],
+      'Publications & Media' => ['Advocacy', 'Journals', 'Publications'],
+      'Service' => ['Advocacy', 'Community Service', 'Fundraising & Philanthropy'],
+      'Social Activism' => ['Advocacy', 'Law', 'Social Activism']
     },
     next_question: {
-      'yes' => nil,
-      'no' => nil
+      'Cultural/Ethnic' => nil,
+      'Educational' => nil,
+      'Environment & Sustainability' => nil,
+      'Faith, Religion, & Spiritual' => nil,
+      'Gender & Sexuality' => nil,
+      'Health & Wellness' => nil,
+      'Political' => nil,
+      'Publications & Media' => nil,
+      'Service' => nil,
+      'Social Activism' => nil,
     },
-    can_skip: false
+    question_type: 'interests'
   )
-
   User.create(
     first_name: 'Tony',
     last_name: 'Li',

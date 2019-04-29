@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   post 'login'  => 'placeholder#login',   :as => 'login'
   get  'login'  => 'placeholder#landing', :as => 'landing'
+  get 'generate_orgs' => 'placeholder#generate_orgs', :as => 'finish_quiz'
 
   root 'placeholder#home'
   resources :quizzes
