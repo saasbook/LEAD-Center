@@ -28,8 +28,6 @@ class PlaceholderController < ApplicationController
     quiz_results = Quiz.find(params[:quiz_id]).get_content
     #here are the interests and categories needed for the API call
     #i.e to get interests: quiz_results[:interests]
-    puts "Categories: " + quiz_results[:categories].to_s
-    puts "Interests: " + quiz_results[:interests].to_s
     
     @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
   end

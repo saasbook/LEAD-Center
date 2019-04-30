@@ -19,7 +19,7 @@ class Organization
 	
         top_orgs = []
         orgs.each do |i|
-            if categories == nil || categories.size == 0 || categories.include?(i['type'])
+            if categories == nil || categories.size == 0 || categories.any?{ |s| s.casecmp(i['type']) == 0 }
                 top_orgs.push(Organization.new(i['organizationId'], i['name'], i['description'], i['profileImageUrl'], i['type'], i['categories']))
             end
         end
@@ -58,7 +58,7 @@ class Organization
     def count_interest(i)
         count = 0
         self.interests.each do |ctg|
-            if i.include?(ctg['categoryName'])
+            if i.any?{ |s| s.casecmp( ctg['categoryName']) == 0 }
                 count += 1
             end
         end
