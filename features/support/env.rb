@@ -67,6 +67,7 @@ rescue NameError
 end
 
 Before do
+  WebMock.allow_net_connect!
   DatabaseCleaner.start
 end
 
