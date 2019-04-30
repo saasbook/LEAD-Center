@@ -43,6 +43,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use RestClient for RESTful API calls
+gem 'rest-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -77,6 +80,8 @@ group :test do
   gem 'factory_bot_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
   gem 'rails-controller-testing' # for some rspec testing features
+  # Use WebMock for internet stubbing
+  gem 'webmock'
 end
 
 # make sure the following gems are in your production group:

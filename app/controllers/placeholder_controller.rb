@@ -21,25 +21,14 @@ class PlaceholderController < ApplicationController
       redirect_to landing_path
     end
     @showQuizWarning = true
-    @organizations = [
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-    ]
+    @organizations = Organization.get_organizations(12, nil, nil)
   end
 
   def generate_orgs
     quiz_results = Quiz.find(params[:quiz_id]).get_content
     #here are the interests and categories needed for the API call
     #i.e to get interests: quiz_results[:interests]
+    
+    @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
   end
 end
