@@ -13,6 +13,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   when /^the edit page$/ then visit "profile/1/edit"
   when /^"landing page"$/ then visit landing_path
   when /^"home page"$/ then visit root_path
+  when /^my quiz results page$/ then visit "/generate_orgs?quiz_id=1"
   end
 end
 

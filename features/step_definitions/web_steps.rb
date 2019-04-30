@@ -71,3 +71,24 @@ end
 Then /I should not see a "Start" button/ do
   page.should have_no_content('Start')
 end
+
+Then /I should see my matched organizations/ do
+  expect(page).to have_text(:all, "Foodies")
+end
+
+Given /I have taken a quiz/ do
+  Question.create(
+    title: "Foo",
+    options: { "Bar" => "Baz"},
+    next_question: { "Bar" => "Baz"},
+    question_type: "category"
+  )
+  qq = Quiz.create(current_question: 1)
+  responses_params = {
+    :question_id => 1,
+    :content => ['social'],
+    :quiz_id => qq.id,
+    :is_category => true
+  }
+  response = Response.create(responses_params)
+end

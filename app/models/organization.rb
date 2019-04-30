@@ -15,6 +15,7 @@ class Organization
     end
 
     def self.get_organizations(num, categories, interests)
+	
         orgs = self.get_orgs_from_api()
 	
         top_orgs = []
