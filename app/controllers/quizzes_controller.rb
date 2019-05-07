@@ -22,6 +22,7 @@ class QuizzesController < ApplicationController
     @response = Response.new
     respond_to do |format|
       if @quiz.save
+        cookies[:finished_quiz] = false
         format.js
       else
         format.js { flash[:alert] = 'There was a problem creating quiz.' }

@@ -20,7 +20,6 @@ class Organization
 	
         top_orgs = []
         orgs.each do |i|
-            binding.pry
             if categories == nil || categories.size == 0 || categories.any?{ |s| s.casecmp(i['type']) == 0 }
                 top_orgs.push(Organization.new(i))
             end
@@ -53,14 +52,13 @@ class Organization
 	  
             break if pageNumber == 2
         end
-        
         return orgs
     end
 
     def count_interest(i)
         count = 0
         self.interests.each do |ctg|
-            if i.any?{ |s| s.casecmp( ctg['categoryName']) == 0 }
+            if i.include?(ctg['categoryName'].titleize)
                 count += 1
             end
         end

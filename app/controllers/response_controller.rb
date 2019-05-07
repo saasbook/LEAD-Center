@@ -27,6 +27,7 @@ class ResponseController < ApplicationController
         next_question = @quiz.update_quiz_state(queue_content[:question_queue])
         if next_question.nil?
           @question = nil
+          cookies[:finished_quiz] = true
         else
           @question = Question.find(next_question)
         end

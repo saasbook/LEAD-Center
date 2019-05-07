@@ -1,4 +1,4 @@
-<h3 class="matched"> Your matched organizations </h3>
+<h3 class="matched"> <%= @showAllOrgs ? 'All Organizations' : 'Your matched organizations' %> </h3>
 <div>
 <% @organizations.each_with_index do |org, i| %>
 <!-- Modal -->

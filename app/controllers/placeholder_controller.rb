@@ -20,7 +20,7 @@ class PlaceholderController < ApplicationController
     if not session[:logged_in]
       redirect_to landing_path
     end
-    @showQuizWarning = true
+    @showAllOrgs = true
     @organizations = Organization.get_organizations(12, nil, nil)
   end
 
@@ -30,5 +30,15 @@ class PlaceholderController < ApplicationController
     #i.e to get interests: quiz_results[:interests]
     
     @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
+    @showAllOrgs = false
+    #melvin
+    respond_to do |format|
+      if @organizations.nil?
+        format.html
+      else
+        format.js
+        format.html
+      end
+    end
   end
 end
