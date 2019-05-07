@@ -5,13 +5,13 @@ class Organization
 
     attr_accessor :id, :name, :description, :imageUrl, :categories, :interests
 
-    def initialize(id, name, description, imageUrl, categories, interests)
-        @id = id
-        @name = name
-        @description = description
-        @imageUrl = imageUrl
-        @categories = categories
-        @interests = interests
+    def initialize(init_params)
+        @id = init_params['organizationId']
+        @name = init_params['name']
+        @description = init_params['description']
+        @imageUrl = init_params['profileImageUrl']
+        @categories = init_params['type']
+        @interests = init_params['categories']
     end
 
     def self.get_organizations(num, categories, interests)
@@ -20,8 +20,9 @@ class Organization
 	
         top_orgs = []
         orgs.each do |i|
+            binding.pry
             if categories == nil || categories.size == 0 || categories.any?{ |s| s.casecmp(i['type']) == 0 }
-                top_orgs.push(Organization.new(i['organizationId'], i['name'], i['description'], i['profileImageUrl'], i['type'], i['categories']))
+                top_orgs.push(Organization.new(i))
             end
         end
 	
@@ -40,7 +41,7 @@ class Organization
         loop do
             pageNumber += 1
             begin
-                response = RestClient.get url, :params => {:page => pageNumber, :key => Figaro.env.callink_key}
+                response = RestClient.get url, {'Accept': 'application/json', :params => {:page => pageNumber, :key => Figaro.env.callink_key}}
                 parsed = JSON.parse(response)
             rescue RestClient::ExceptionWithResponse => err # We don't have the keys yet, so on 401 error display placeholder orgs
                 placeholder = File.new("spec/response/raw_organizations_response.txt")
@@ -50,7 +51,7 @@ class Organization
             totalPages = parsed['totalPages']
             pageNumber = parsed['pageNumber']
 	  
-            break if pageNumber >= totalPages
+            break if pageNumber == 2
         end
         
         return orgs
