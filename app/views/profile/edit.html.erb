@@ -86,75 +86,75 @@
             <small class="text-muted">(Check all that apply)</small>
           </label>
           <div class="form-row light-labels">
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="African" id="African">
-              <label class="form-check-label" for="African">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="African" id="African">
+              <label class="custom-control-label" for="African">
                 African
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="African-American" id="African-American">
-              <label class="form-check-label" for="African-American">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="African-American" id="African-American">
+              <label class="custom-control-label" for="African-American">
                 African-American
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="White" id="White">
-              <label class="form-check-label" for="White">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="White" id="White">
+              <label class="custom-control-label" for="White">
                 White
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="East Asian" id="East Asian">
-              <label class="form-check-label" for="East Asian">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="East Asian" id="East Asian">
+              <label class="custom-control-label" for="East Asian">
                 East Asian
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Southeast Asian" id="Southeast Asian">
-              <label class="form-check-label" for="Southeast Asian">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Southeast Asian" id="Southeast Asian">
+              <label class="custom-control-label" for="Southeast Asian">
                 Southeast Asian
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="South Asian" id="South Asian">
-              <label class="form-check-label" for="South Asian">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="South Asian" id="South Asian">
+              <label class="custom-control-label" for="South Asian">
                 South Asian
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Native American" id="Native American">
-              <label class="form-check-label" for="Native American">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Native American" id="Native American">
+              <label class="custom-control-label" for="Native American">
                 Native American
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Pacific Islander" id="Pacific Islander">
-              <label class="form-check-label" for="Pacific Islander">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Pacific Islander" id="Pacific Islander">
+              <label class="custom-control-label" for="Pacific Islander">
                 Pacific Islander
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Latinx" id="Latinx">
-              <label class="form-check-label" for="Latinx">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Latinx" id="Latinx">
+              <label class="custom-control-label" for="Latinx">
                 Latinx
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Middle Eastern & North African/Southwest Asian & North African" id="Middle Eastern & North African/Southwest Asian & North African">
-              <label class="form-check-label" for="Middle Eastern & North African/Southwest Asian & North African">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Middle Eastern & North African/Southwest Asian & North African" id="Middle Eastern & North African/Southwest Asian & North African">
+              <label class="custom-control-label" for="Middle Eastern & North African/Southwest Asian & North African">
                 Middle Eastern & North African/Southwest Asian & North African
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Not Listed" id="Not Listed">
-              <label class="form-check-label" for="Not Listed">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Not Listed" id="Not Listed">
+              <label class="custom-control-label" for="Not Listed">
                 Not Listed
               </label>
             </div>
-            <div class="form-check col-sm-6">
-              <input class="form-check-input" type="checkbox" value="Prefer not to state" id="Prefer not to state">
-              <label class="form-check-label" for="Prefer not to state">
+            <div class="custom-control custom-checkbox col-sm-6">
+              <input class="custom-control-input" type="checkbox" value="Prefer not to state" id="Prefer not to state">
+              <label class="custom-control-label" for="Prefer not to state">
                 Prefer not to state
               </label>
             </div>
@@ -168,17 +168,17 @@
             <small class="text-muted">(Check if any applicable)</small>
           </label>
           <div class="form-row light-labels">
-            <div class="form-check col-lg-4">
-                <input class="form-check-input" type="checkbox" id="transfer" name="transfer" <%= 'checked' unless !@profile.transfer %>>
-                <label for="transfer">Transfer</label>
+            <div class="custom-control custom-checkbox col-lg-4">
+                <input class="custom-control-input" type="checkbox" id="transfer" name="transfer" <%= 'checked' unless !@profile.transfer %>>
+                <label class="custom-control-label" for="transfer">Transfer</label>
             </div>
-            <div class="form-check col-lg-4">
-                <input class="form-check-input" type="checkbox" id="graduate" name="graduate" <%= 'checked' unless !@profile.graduate %>>
-                <label for="graduate">Graduate</label>
+            <div class="custom-control custom-checkbox col-lg-4">
+                <input class="custom-control-input" type="checkbox" id="graduate" name="graduate" <%= 'checked' unless !@profile.graduate %>>
+                <label class="custom-control-label" for="graduate">Graduate</label>
             </div>
-            <div class="form-check col-lg-4">
-                <input class="form-check-input" type="checkbox" id="international" name="international" <%= 'checked' unless !@profile.international %>>
-                <label for="international">International</label>
+            <div class="custom-control custom-checkbox col-lg-4">
+                <input class="custom-control-input" type="checkbox" id="international" name="international" <%= 'checked' unless !@profile.international %>>
+                <label class="custom-control-label" for="international">International</label>
             </div>
           </div>
         </div>
