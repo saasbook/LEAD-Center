@@ -66,12 +66,12 @@
             <select id="gender" name="gender" class="custom-select">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option value="Other" selected>Other</option>
             </select>
           </div>
-          <div id="gender-text-form" class="form-group col-lg-6" style="display: none;">
+          <div id="gender-text-form" class="form-group col-lg-6" style="<%= @profile.gender == 'Male' || @profile.gender == 'Female' ? 'display: none;' : '' %>">
             <label for="gender-text">Specify Gender</label>
-            <input type="text" name="gender" class="form-control" id="gender-text" value="<%= @profile.gender %>">
+            <input type="text" name="gender_text" class="form-control" id="gender-text" value="<%= @profile.gender %>">
           </div>
         </div>
       </div>
@@ -85,75 +85,75 @@
             Ethnicity 
             <small class="text-muted">(Check all that apply)</small>
           </label>
-          <div class="form-row light-labels">
+          <div class="form-row light-labels" id="ethnicities">
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="African" id="African">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="African" id="African">
               <label class="custom-control-label" for="African">
                 African
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="African-American" id="African-American">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="African-American" id="African-American">
               <label class="custom-control-label" for="African-American">
                 African-American
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="White" id="White">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="White" id="White">
               <label class="custom-control-label" for="White">
                 White
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="East Asian" id="East Asian">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="East Asian" id="East Asian">
               <label class="custom-control-label" for="East Asian">
                 East Asian
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Southeast Asian" id="Southeast Asian">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Southeast Asian" id="Southeast Asian">
               <label class="custom-control-label" for="Southeast Asian">
                 Southeast Asian
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="South Asian" id="South Asian">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="South Asian" id="South Asian">
               <label class="custom-control-label" for="South Asian">
                 South Asian
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Native American" id="Native American">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Native American" id="Native American">
               <label class="custom-control-label" for="Native American">
                 Native American
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Pacific Islander" id="Pacific Islander">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Pacific Islander" id="Pacific Islander">
               <label class="custom-control-label" for="Pacific Islander">
                 Pacific Islander
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Latinx" id="Latinx">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Latinx" id="Latinx">
               <label class="custom-control-label" for="Latinx">
                 Latinx
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Middle Eastern & North African/Southwest Asian & North African" id="Middle Eastern & North African/Southwest Asian & North African">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Middle Eastern & North African/Southwest Asian & North African" id="Middle Eastern & North African/Southwest Asian & North African">
               <label class="custom-control-label" for="Middle Eastern & North African / Southwest Asian & North African">
                 Middle Eastern & North African / Southwest Asian & North African
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Not Listed" id="Not Listed">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Not Listed" id="Not Listed">
               <label class="custom-control-label" for="Not Listed">
                 Not Listed
               </label>
             </div>
             <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" type="checkbox" value="Prefer not to state" id="Prefer not to state">
+              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Prefer not to state" id="Prefer not to state">
               <label class="custom-control-label" for="Prefer not to state">
                 Prefer not to state
               </label>
@@ -204,6 +204,24 @@
       $("#gender-text-form").fadeOut();
     }
   });
+
+  $(document).ready(function() {
+    var checkboxes = $('#ethnicities input');
+    for (var i=0; i < checkboxes.length; i++) {
+      markChecked(checkboxes[i]);
+    }
+  });
+
+  function markChecked(elem) {
+    var studentEthnicity = <%=raw @profile.ethnicity %>;
+    if (studentEthnicity.includes(elem.value)) {
+      console.log(elem);
+      $(elem).prop('checked', true);
+    }
+    return;
+  }
+
+
 
 function setSelected(a, b) {
     for (var i=0; i<a.options.length; i++ ){

@@ -20,53 +20,62 @@
   </div>
   </div>
 </nav>
-
-<hr>
-
-   <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
-      </div></hr><br>
-    <hr>
-        <div class="col-xs-6">
-          <label for="firstname"><h4>First name:</h4></label>
-          <span class="firstname"><%= @profile.first_name %></span>
+<div id="profile-hero">
+  <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" id="profile-avatar" class="avatar rounded-circle img-thumbnail" alt="avatar">
+</div>
+<div id="profile-container" class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card bg-light">
+        <h5 id="profile-name" class="card-header text-center"><%= @profile.first_name %> <%= @profile.last_name %></h5>
+        <ul id="profile-content" class="list-group list-group-flush">
+          <li class="list-group-item profile-field">
+            <label>Major:</label>
+            <%= @profile.major %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Graduation Year:</label>
+            <%= @profile.grad_year %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Gender:</label>
+            <%= @profile.gender %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Ethnicity:</label>
+            <% if @profile.ethnicity.length > 1 %>
+              <ul class="list-group nested-group">
+              <% @profile.ethnicity.each do |eth| %>
+                <li><%= eth %></li>
+              <% end %>
+              </ul>
+            <% else %>
+              <%= @profile.ethnicity.length > 0 ? @profile.ethnicity[0] : '' %>
+            <% end %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Student:</label>
+            <% if @profile.graduate || @profile.transfer || @profile.international %>
+              <ul class="list-group nested-group">
+                <% if @profile.graduate %>
+                  <li>Graduate</li>
+                <% end %>
+                <% if @profile.transfer %>
+                  <li>Transfer</li>
+                <% end %>
+                <% if @profile.international %>
+                  <li>International</li>
+                <% end %>
+              </uL>
+            <% else %>
+              N/A
+            <% end %>
+          </li>
+        </ul>
+        <div class="card-footer text-center">
+          <%= link_to "Edit Profile", edit_profile_path(@id), class: "btn btn-primary", id: "edit-profile-btn" %>
         </div>
-        <div class="col-xs-6">
-          <label for="lastname"><h4>Last name:</h4></label>
-          <span class="lastname"><%= @profile.last_name %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="major"><h4>Major:</h4></label>
-          <span class="major"><%= @profile.major %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="schoolyear"><h4>Graduation Year:</h4></label>
-          <span class="schoolyear"><%= @profile.grad_year %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="gender"><h4>Gender Identity:</h4></label>
-          <span class="gender"><%= @profile.gender %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="ethnicity"><h4>Ethnicity:</h4></label>
-          <span class="ethnicity"><%= @profile.ethnicity %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="transfer"><h4>Transfer Student:</h4></label>
-          <span class="transfer" id='transfer'><%= @profile.transfer ? 'Yes' : 'No' %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="graduate"><h4>Graduate Student:</h4></label>
-          <span class="graduate" id='graduate'><%= @profile.graduate ? 'Yes' : 'No' %></span>
-        </div>
-        <div class="col-xs-6">
-          <label for="international"><h4>International Student:</h4></label>
-          <span class="international" id='international' ><%= @profile.international ? 'Yes' : 'No' %></span>
-        </div>
-        <form action= "<%= @id %>/edit" method="get" id="edit">
-          <div class="col-xs-12  text-center">
-          <button class="btn btn-primary" type="submit">Edit Profile</button>
-          </div>
-        </form>
+      </div>
+    </div>
+  </div>
+</div>
