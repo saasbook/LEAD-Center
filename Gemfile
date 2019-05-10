@@ -13,6 +13,8 @@ gem 'figaro'
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
 gem 'bootstrap'
+# Font Awesome
+gem 'font-awesome-rails'
 
 gem 'jquery-rails'
 

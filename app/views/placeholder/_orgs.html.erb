@@ -7,7 +7,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><%= org.name %></h5>
+            <h3 class="modal-title text-center w-100"><%= org.name %></h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -17,20 +17,29 @@
               <%= image_tag(org.imageUrl) %>
             </div>
             <div>
-              <h3>Description</h3>
+              <h4>Description</h4>
               <%= raw org.description %>
             </div>
             <div> 
-              <h3>Contact Information</h3>
-              Phone number <%= org.phone_number %>
+              <h4>Contact Information</h4>
+              <% if not org.phone_number.blank?%>
+                <i class="fa fa-phone fa-2x"></i> <%= org.phone_number %>
+              <% end %>
               <br>
-              Facebook <%= org.facebook %>
-              <br>
-              Twitter <%= org.twitter %>
-              <br>
-              Email <%= org.email %>
-              <br>
-              Website <%= org.website %>
+              <% if not org.email.blank?%>
+                <i class="fa fa-envelope fa-2x"></i> <%= org.email %>
+              <% end %>
+              <div> 
+                <% if not org.facebook.blank?%>
+                  <a href="<%= org.facebook %>" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                <% end %>
+                <% if not org.twitter.blank?%>
+                  <a href="<%= org.twitter %>" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                <% end %>
+                <% if not org.website.blank?%>
+                  <a href="<%= org.website.include?('http') ? org.website : 'http://' + org.website %>" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+                <% end %>
+              </div>
             </div>
             <br>
           </div>
