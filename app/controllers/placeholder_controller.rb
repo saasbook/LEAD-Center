@@ -30,10 +30,9 @@ class PlaceholderController < ApplicationController
     
     @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
     @showAllOrgs = false
-    #melvin
     respond_to do |format|
       if @organizations.nil?
-        format.html
+        format.js { flash[:alert] = 'There was a problem matching with organizations.' }
       else
         format.js
         format.html
