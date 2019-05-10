@@ -13,8 +13,9 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+Regarding Symmetric Key: it should be provided by the course staff
 To ecnrypt the API key run: `gpg --output config/application.yml.asc --symmetric config/application.yml`
-To decrypt: gpg --output config/application.yml --decrypt config/application.yml.asc
+To decrypt the API key run: `gpg --output config/application.yml --decrypt config/application.yml.asc`
 * Database creation
 
 * Database initialization
