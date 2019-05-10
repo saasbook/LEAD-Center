@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 
 class Organization
-  attr_accessor :id, :name, :description, :imageUrl, :categories, :interests
+  attr_accessor :id, :name, :description, :imageUrl, :categories, :interests, :phone_number, :email, :facebook, :twitter, :website
 
   def initialize(init_params)
     @id = init_params['organizationId']
@@ -11,6 +11,11 @@ class Organization
     @imageUrl = init_params['profileImageUrl']
     @categories = init_params['type']
     @interests = init_params['categories']
+    @phone_number = init_params['phoneNumber']
+    @email = init_params['email']
+    @facebook = init_params['facebookUrl']
+    @twitter = init_params['twitterUrl']
+    @website = init_params['externalWebsite']
   end
 
   def self.get_organizations(num, categories, interests)

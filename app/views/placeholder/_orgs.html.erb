@@ -4,7 +4,7 @@
   <% @organizations.each_with_index do |org, i| %>
   <!-- Modal -->
     <div class="modal fade" id="<%= 'modal-' + i.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><%= org.name %></h5>
@@ -13,7 +13,26 @@
             </button>
           </div>
           <div class="modal-body">
-            <%= org.description %>.
+            <div class="text-center"> 
+              <%= image_tag(org.imageUrl) %>
+            </div>
+            <div>
+              <h3>Description</h3>
+              <%= raw org.description %>
+            </div>
+            <div> 
+              <h3>Contact Information</h3>
+              Phone number <%= org.phone_number %>
+              <br>
+              Facebook <%= org.facebook %>
+              <br>
+              Twitter <%= org.twitter %>
+              <br>
+              Email <%= org.email %>
+              <br>
+              Website <%= org.website %>
+            </div>
+            <br>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
