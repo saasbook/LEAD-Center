@@ -41,20 +41,14 @@ class Organization
 
     loop do
       pageNumber += 1
-      begin
-        response = RestClient.get url, {'Accept': 'application/json', 
-        :params => {
-            :page => pageNumber, 
-            :status => 'Active',
-            :key => Figaro.env.callink_key, 
-            :type => 'Registered Student Organizations'},
-        }
-        parsed = JSON.parse(response)
-      rescue RestClient::ExceptionWithResponse => err # We don't have the keys yet, so on 401 error display placeholder orgs
-        binding.pry
-        placeholder = File.new("spec/response/raw_organizations_response.txt")
-        parsed = JSON.parse(placeholder.read)
-      end
+      response = RestClient.get url, {'Accept': 'application/json', 
+      :params => {
+          :page => pageNumber, 
+          :status => 'Active',
+          :key => Figaro.env.callink_key, 
+          :type => 'Registered Student Organizations'},
+      }
+      parsed = JSON.parse(response)
       orgs += parsed['items']
       totalPages = parsed['totalPages']
       pageNumber = parsed['pageNumber']

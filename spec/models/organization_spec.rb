@@ -45,19 +45,5 @@ RSpec.describe Organization, type: :model do
     #   expect(orgs.length).to eq 3
     # end
   end
-  it 'makes a API request with no key' do 
-    url = "https://callink.berkeley.edu/api/Organizations"
-    stub_request(:get, url).with(:query => { :page => 1, :key => "nil", :type => 'Registered Student Organizations', :status => 'Active'}).and_raise(RestClient::ExceptionWithResponse)
-    # Organization.get_organizations(3, ["academic","social"], nil)
-    # WebMock.should have_requested(:get , url).with(:query => { :page => 1, :key => nil, :type => 'Registered Student Organizations', :status => 'Active' })
-    # expect(stub).to raise_exception
-    # expect(WebMock).not_to have_requested(:get, url).with(:query => { :page => 1, :key => nil, :type => 'Registered Student Organizations', :status => 'Active'})
-    expect {
-      Organization.get_organizations(3, ["academic","social"], nil)
-    }.to raise_exception
-    binding.pry
-    expect(:placeholder).to_not be_nil
-    expect(:parsed).to_not be_nil
-  end
 
 end
