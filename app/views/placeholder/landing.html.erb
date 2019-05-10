@@ -35,7 +35,10 @@
           <h1>Communities@Cal</h1>
           <p>Please login through CalNet to continue.</p> 
           <%= form_tag signin_path, :method => 'get' do %>
-            <input id="login-button" type="submit" value="Login" class="btn btn-primary"/>
+          <div class="col-md-4 offset-md-4">
+            <input id="login-button" type="submit" value="Sign in" class="btn btn-primary btn-block"
+                   style="background: linear-gradient(#2683bc, #1f7099), #1f7099"/>
+          </div>
           <% end %>
           <br>
       </div>

@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :create #TODO
+
 
   def create
-    auth = auth_hash
+    auth = request.env['omniauth.auth']
     @user = User.where(:uid => auth['uid'].to_s).first || User.create_new_user(auth)
     reset_session
     session[:user_id] = @user.id
+    session[:ticket] = auth[:credentials][:ticket]
+    session[:auth] = auth
     session[:logged_in] = true
     redirect_to root_url
   end
@@ -19,14 +21,10 @@ class SessionsController < ApplicationController
     redirect_to "/auth/cas"
   end
 
-  def signout
+  def destroy
     reset_session
-    redirect_to root_url
+    # redirect_to root_url
+    redirect_to "https://auth.berkeley.edu/cas/logout"
   end
 
-  protected
-
-  def auth_hash
-    request.env['omniauth.auth']
-  end
 end
