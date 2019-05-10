@@ -21,7 +21,6 @@ class PlaceholderController < ApplicationController
       redirect_to landing_path
     end
     @showAllOrgs = true
-    @organizations = Organization.get_organizations(12, nil, nil)
   end
 
   def generate_orgs
