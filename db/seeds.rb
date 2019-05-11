@@ -108,7 +108,7 @@
     gender: 'Male',
     major: 'IEOR',
     grad_year: '2020',
-    ethnicity: 'East Asian',
+    ethnicity: ['East Asian'],
     transfer: false,
     graduate: false,
     international: false
