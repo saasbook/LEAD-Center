@@ -12,14 +12,14 @@ Background: users have been added to database
 
     And I am on the profile page
     Then I should see "Profile"
-    Then I should see "First Name"
+    Then I should see "First name"
 
 Scenario: editing first name
     When I press "Edit Profile"
     And I fill in "first_name" with "Dean"
     And I press "Submit"
-    Then I should see "Dean" after "First Name"
-    And I should see "Dean" before "Last Name"
+    Then I should see "Dean" after "First name"
+    And I should see "Dean" before "Last name"
     And I should not see "Tony"
 
 Scenario: editing grad_year
