@@ -52,6 +52,7 @@ When /I (do not )?click the "Start" button/ do |dont_click|
 end
 
 Then /I should (not )?see the quiz modal/ do |not_see|
+  sleep 3
   expect(find('#quiz-modal')['class']).to include('show') unless not_see
 end
 
