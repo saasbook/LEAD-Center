@@ -20,8 +20,7 @@ class PlaceholderController < ApplicationController
     if not session[:logged_in]
       redirect_to landing_path
     end
-    @showQuizWarning = true
-    @organizations = Organization.get_organizations(12, nil, nil)
+    @showAllOrgs = true
   end
 
   def generate_orgs
@@ -30,5 +29,14 @@ class PlaceholderController < ApplicationController
     #i.e to get interests: quiz_results[:interests]
     
     @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
+    @showAllOrgs = false
+    respond_to do |format|
+      if @organizations.nil?
+        format.js { flash[:alert] = 'There was a problem matching with organizations.' }
+      else
+        format.js
+        format.html
+      end
+    end
   end
 end

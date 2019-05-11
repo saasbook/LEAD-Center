@@ -13,7 +13,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   when /^the edit page$/ then visit "profile/1/edit"
   when /^"landing page"$/ then visit landing_path
   when /^"home page"$/ then visit root_path
-  when /^my quiz results page$/
+  when /^the updated home page with quiz results$/
     url = "https://callink.berkeley.edu/api/Organizations"
     raw_response_file1 = File.new("spec/response/raw_organizations_response.txt")
     stub_request(:any, url).with(:query => { :page => 1, :key => Figaro.env.callink_key }).to_return(:body => raw_response_file1.read)

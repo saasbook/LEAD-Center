@@ -5,5 +5,4 @@ Feature: Organizations Page
 
 Scenario: see organizations on quiz results
   Given I have taken a quiz
-  And I am on my quiz results page
-  Then I should see my matched organizations
+  Then I am on the updated home page with quiz results
