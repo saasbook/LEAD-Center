@@ -1,7 +1,7 @@
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
-    # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
+    # Should be part of the new profile change
+    user[:ethnicity] = user[:ethnicity].split(/,/)
     users = User.create(user)
     users.save
   end
@@ -21,23 +21,12 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   end
 end
 
-Given /I have logged in to the interests upload page/ do
-	# Stub out the basic auth; not very compatible with cucumber, and we already test this in rspec
-	allow_any_instance_of(InterestsController).to receive(:http_authenticate) do |arg|
-	end
-	visit interests_path
+Given /^(?:|I )see "([^"]*)"$/ do |e1|
+  expect(page.body.include?(e1)).to be(true)
 end
 
-When /I upload a file/ do
-  # Stub out the file write, just in case it overwrites something
-  allow_any_instance_of(InterestsController).to receive(:save_csv) do |arg|
-  end
-  attach_file('csv_file', "#{Rails.root}/spec/fixtures/dummy.csv")
-  click_button("Upload")
-end
-
-When /^(?:|I )press "([^"]*)"$/ do |button|
-  click_button(button)
+When /^(?:|I )press "([^"]*)"( link)?$/ do |content, is_link|
+  is_link ? click_link(content) : click_button(content)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -49,7 +38,7 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
-  check(field)
+  find("label[for='#{field}']").click
 end
 
 Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|
@@ -76,3 +65,4 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
     assert_equal path_to(page_name), current_path
   end
 end
+
