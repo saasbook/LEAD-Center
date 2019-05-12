@@ -18,29 +18,40 @@ class Organization
     @categories = init_params['categories']
     @interests = init_params['interests']
   end
+  
+  def self.add_org(category, quiz_category, interest, org_info)
+    if category['categoryName'].downcase.include? quiz_category.downcase
+      org_interest = interest.find {|row| row['Organization ID'].to_i == org_info['organizationId']}
+      if org_interest != nil
+        org_info['interests'] = org_interest['Organization Interest']
+      else
+        org_info['interests'] = ''
+      end
+      return Organization.new(org_info)
+    end
+    return nil
+  end
 
-  def self.get_organizations(num, categories, interests)
-    orgs = self.get_orgs_from_api()
-    csv_text = File.read('lib/interest.csv')
-    interest = CSV.parse(csv_text, headers: true)
-    top_orgs = []
+  def self.add_orgs_by_categories(top_orgs, orgs, categories, interest)
     orgs.each do |i|
       org_categories = i['categories']
       org_categories.each do |c|
         categories.each do |quiz_category|
-          if c['categoryName'].downcase.include? quiz_category.downcase
-            org_interest = interest.find {|row| row['Organization ID'].to_i == i['organizationId']}
-            if org_interest != nil
-              i['interests'] = org_interest['Organization Interest']
-            else
-              i['interests'] = ''
-            end
-            top_orgs.push(Organization.new(i))
+          org = add_org(c, quiz_category, interest, i)
+          if org
+            top_orgs.push(org)
           end
         end
       end
     end
-
+    return top_orgs
+  end
+  
+  def self.get_organizations(num, categories, interests)
+    orgs = self.get_orgs_from_api()
+    csv_text = File.read('lib/interest.csv')
+    interest = CSV.parse(csv_text, headers: true)
+    top_orgs = add_orgs_by_categories([], orgs, categories, interest)
      if interests != nil
        top_orgs = top_orgs.sort_by { |org| -org.count_interest(interests)}
      end
