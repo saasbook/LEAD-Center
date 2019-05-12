@@ -1,0 +1,11 @@
+Hello, world!
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_tag(upload_interests_path, :multipart => true) do %>
+  <%= file_field_tag :csv_file, :accept => 'text/csv' %>
+  <%= submit_tag "Upload" %>
+<% end %>

@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get 'profile/:id'=> 'profile#show', :as => 'show_profile'
   get 'profile/:id/edit' => 'profile#edit', :as => 'edit_profile'
   post 'profile/:id' => 'profile#update', :as => 'update_profile'
+  
+  get 'interests' => 'interests#index', :as => 'interests'
+  post 'interests/upload' => 'interests#upload', :as => 'upload_interests'
 end
