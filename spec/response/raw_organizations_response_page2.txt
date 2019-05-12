@@ -6,12 +6,17 @@
   "name": "Alpha Alpha Alpha",
   "description": "Placeholder description",
   "profileImageUrl": "Placeholder image",
-  "type": "greek life",
   "categories": [
-        {  "categoryName": "greek life"},
-        {  "categoryName": "social"},
-        {  "categoryName": "ethnic"}
+        {  "categoryName": "greek life"}
       ]
-  }
+  },
+  {"organizationId": 5,
+  "name": "no interest",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "academic"}
+      ]
+    }
   ]
 }

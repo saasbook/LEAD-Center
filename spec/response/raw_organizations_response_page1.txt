@@ -6,40 +6,32 @@
   "name": "Placeholder name",
   "description": "Placeholder description",
   "profileImageUrl": "Placeholder image",
-  "type": "academic",
   "categories": [
-        {  "categoryName": "educational"},
-        {  "categoryName": "honor society"}
+        {  "categoryName": "academic"}
       ]
   },
   {"organizationId": 1,
   "name": "Academic Advocacy Group",
   "description": "Placeholder description",
   "profileImageUrl": "Placeholder image",
-  "type": "academic",
   "categories": [
-        {  "categoryName": "community service"},
-        {  "categoryName": "advocacy"}
+        {  "categoryName": "academic"}
       ]
   },
   {"organizationId": 2,
   "name": "Foodies",
   "description": "Placeholder description",
   "profileImageUrl": "Placeholder image",
-  "type": "social",
   "categories": [
-        {  "categoryName": "social"},
-        {  "categoryName": "food"}
+        {  "categoryName": "social"}
       ]
   },
   {"organizationId": 3,
   "name": "Art Club",
   "description": "Placeholder description",
   "profileImageUrl": "Placeholder image",
-  "type": "creativity",
   "categories": [
-        {  "categoryName": "art"},
-        {  "categoryName": "social"}
+        {  "categoryName": "creativity"}
       ]
   }]
 }
