@@ -1,7 +1,7 @@
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
-    # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
+    # Should be part of the new profile change
+    user[:ethnicity] = user[:ethnicity].split(/,/)
     users = User.create(user)
     users.save
   end
@@ -36,8 +36,12 @@ When /I upload a file/ do
   click_button("Upload")
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
-  click_button(button)
+Given /^(?:|I )see "([^"]*)"$/ do |e1|
+  expect(page.body.include?(e1)).to be(true)
+end
+
+When /^(?:|I )press "([^"]*)"( link)?$/ do |content, is_link|
+  is_link ? click_link(content) : click_button(content)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -49,7 +53,7 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
-  check(field)
+  find("label[for='#{field}']").click
 end
 
 Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|
@@ -76,3 +80,4 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
     assert_equal path_to(page_name), current_path
   end
 end
+

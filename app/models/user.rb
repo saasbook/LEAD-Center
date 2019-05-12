@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  serialize :ethnicity, Array
 
   def self.create_new_user(auth)
     create! do |user|
