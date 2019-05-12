@@ -1,0 +1,22 @@
+{
+  "pageNumber": 2,
+  "totalPages": 2,
+  "items":[{
+  "organizationId": 4,
+  "name": "Alpha Alpha Alpha",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "greek life"}
+      ]
+  },
+  {"organizationId": 5,
+  "name": "no interest",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "academic"}
+      ]
+    }
+  ]
+}

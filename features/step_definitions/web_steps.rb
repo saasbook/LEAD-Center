@@ -4,7 +4,7 @@ Given /the following questions exist/ do |questions_table|
       title: question['title'],
       options: eval(question['options']),
       next_question: eval(question['next_question']),
-      can_skip: question['can_skip']
+      question_type: question['question_type']
     )
   end
 end
@@ -60,22 +60,44 @@ When /I (do not )?click the "Start" button/ do |dont_click|
 end
 
 Then /I should (not )?see the quiz modal/ do |not_see|
+  sleep 3
   expect(find('#quiz-modal')['class']).to include('show') unless not_see
 end
 
 When /I repeatedly answer questions/ do
-  sleep 3
+  sleep 2 # Sleeps are necessary here to allow for CSS transition times
   while page.has_button?('submit-response-btn') do
-    choose('selected_option', wait: 3, :match => :first)
+    check('selected_options_', wait: 3, :match => :first)
     click_button('submit-response-btn')
-    sleep 3
+    sleep 2
   end
 end
 
 Then /I should see a finished quiz page/ do
-  expect(page).to have_button('finish-quiz')
+  expect(page).to have_link('finish-quiz')
 end
 
 Then /I should not see a "Start" button/ do
   page.should have_no_content('Start')
+end
+
+Then /I should see my matched organizations/ do
+  expect(page).to have_text(:all, "Foodies")
+end
+
+Given /I have taken a quiz/ do
+  Question.create(
+    title: "Foo",
+    options: { "Bar" => "Baz"},
+    next_question: { "Bar" => "Baz"},
+    question_type: "category"
+  )
+  qq = Quiz.create(current_question: 1)
+  responses_params = {
+    :question_id => 1,
+    :content => ['social'],
+    :quiz_id => qq.id,
+    :is_category => true
+  }
+  response = Response.create(responses_params)
 end

@@ -98,6 +98,7 @@ div.snip1104 h4 {
   top: 50%;
   text-transform: uppercase;
   font-weight: 400;
+  font-size: 1.2em;
 }
 
 div.snip1104 h4 span {
@@ -173,23 +174,35 @@ div.snip1104.hover:before {
 }
 
 .slick-next, .slick-prev {
-  background: #00B2A9;
+  background: transparent;
 }
 .slick-next:hover, 
 .slick-next:focus, 
 .slick-prev:hover, 
 .slick-prev:focus {
-  background: #00B2A9;
+  background: transparent;
+}
+
+.slick-next:hover, 
+.slick-next:focus .slick-next:before {
+  opacity: 1;
+}
+
+.slick-prev:hover, 
+.slick-prev:focus .slick-prev:before {
+  opacity: 1;
 }
 
 .slick-prev:before,
 .slick-next:before
 {
-  opacity: .9;
+  opacity: .75;
+  color: #00B2A9;
 }
 
 .slick-prev.slick-disabled,
 .slick-next.slick-disabled
 {
-  background: transparent;
+  opacity: 0;
 }
+

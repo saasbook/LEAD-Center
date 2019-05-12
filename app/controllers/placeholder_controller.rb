@@ -1,7 +1,4 @@
 class PlaceholderController < ApplicationController
-
-  #before_action :get_game_from_session
-  #after_action  :store_game_in_session
   
   public
   
@@ -20,21 +17,23 @@ class PlaceholderController < ApplicationController
     if not session[:logged_in]
       redirect_to landing_path
     end
-    @showQuizWarning = true
-    @organizations = [
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-      '(Mindful) at Berkeley', 
-      '*African American Student Development*', 
-      '*Berkeley Art Studio*', '*LEAD Center*', 
-      '*Native American Student Development*',
-    ]
+    @showAllOrgs = true
   end
 
+  def generate_orgs
+    quiz_results = Quiz.find(params[:quiz_id]).get_content
+    #here are the interests and categories needed for the API call
+    #i.e to get interests: quiz_results[:interests]
+    
+    @organizations = Organization.get_organizations(12, quiz_results[:categories], quiz_results[:interests])
+    @showAllOrgs = false
+    respond_to do |format|
+      if @organizations.nil?
+        format.js { flash[:alert] = 'There was a problem matching with organizations.' }
+      else
+        format.js
+        format.html
+      end
+    end
+  end
 end

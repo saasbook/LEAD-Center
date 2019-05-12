@@ -1,23 +1,32 @@
 <%= form_tag(response_index_path, method: 'post', class: 'form-check', remote: true, id: 'response-form') do %>
   <div class="modal-body text-left" id='question-container'>
+    <% if alert %>
+      <!-- Alert if problem saving response. -->
+      <p class="alert alert-warning alert-dismissible fade show">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% end %>
     <% if @question.nil? %>
       <h5 class='card-title'>You finished the quiz!</h5>
     <% else %>
       <h5 class='card-title'><%= @question.title %></h5>
       <div id='options-container'>
         <% @question.options.each do |option_title, _| %>
-          <label><%= radio_button_tag(:selected_option, option_title) %> <%= option_title %></label>
+          <label><%= check_box_tag("selected_options[]", option_title) %> <%= option_title %></label>
           <br>
         <% end %>
       </div>
       <%= hidden_field_tag(:question_id, @question.id) %>
+      <%= hidden_field_tag(:quiz_id, @quiz.id) %>
     <% end %>
   </div>
   <div class="modal-footer">
     <% if @question.nil? %>
-      <button type="button" id='finish-quiz' class="btn btn-finish-quiz" data-dismiss="modal">See Orgs</button>
+      <%= link_to "See Orgs", finish_quiz_path(:quiz_id => @quiz.id), :id => 'finish-quiz', :class => "btn btn-finish-quiz", :remote => true, "data-dismiss" => "modal" %>
     <% else %>
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip</button>
       <%= submit_tag('Next Question', class: 'btn btn-warning', id: 'submit-response-btn') %>
     <% end%>
   </div>

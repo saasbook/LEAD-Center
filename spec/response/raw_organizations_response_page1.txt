@@ -1,0 +1,37 @@
+{
+  "pageNumber": 1,
+  "totalPages": 2,
+  "items":[{
+  "organizationId": 0,
+  "name": "Placeholder name",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "academic"}
+      ]
+  },
+  {"organizationId": 1,
+  "name": "Academic Advocacy Group",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "academic"}
+      ]
+  },
+  {"organizationId": 2,
+  "name": "Foodies",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "social"}
+      ]
+  },
+  {"organizationId": 3,
+  "name": "Art Club",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "creativity"}
+      ]
+  }]
+}

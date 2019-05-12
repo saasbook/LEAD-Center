@@ -13,6 +13,8 @@ gem 'figaro'
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
 gem 'bootstrap'
+# Font Awesome
+gem 'font-awesome-rails'
 
 gem 'jquery-rails'
 
@@ -44,6 +46,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'omniauth-cas'
+# Use RestClient for RESTful API calls
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,7 +72,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug'
   # setup Cucumber, RSpec, Guard support
   gem 'rspec-rails'
   gem 'guard-rspec'
@@ -79,6 +83,8 @@ group :test do
   gem 'factory_bot_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
   gem 'rails-controller-testing' # for some rspec testing features
+  # Use WebMock for internet stubbing
+  gem 'webmock'
 end
 
 # make sure the following gems are in your production group:

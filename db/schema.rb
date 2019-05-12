@@ -10,21 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_21_041626) do
+
+ActiveRecord::Schema.define(version: 2019_04_28_013301) do
 
   create_table "questions", force: :cascade do |t|
     t.text "options"
     t.string "title"
     t.text "next_question"
-    t.boolean "can_skip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "question_type"
   end
 
   create_table "quizzes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_question"
+    t.string "question_queue"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -33,7 +35,8 @@ ActiveRecord::Schema.define(version: 2019_04_21_041626) do
     t.integer "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "categories"
+    t.text "content"
+    t.boolean "is_category"
     t.index ["question_id"], name: "index_responses_on_question_id"
     t.index ["quiz_id"], name: "index_responses_on_quiz_id"
   end
