@@ -15,12 +15,7 @@ class ProfileController < ApplicationController
 
   def update
     @profile = User.find(params[:id])
-    if params[:gender]
-      params[:gender] = params[:gender].titleize
-    end
-    [:transfer, :graduate, :international].each do |field|
-      params[field] = false unless params[field]
-    end
+    set_params
     if @profile.update_attributes(user_params)
       redirect_to show_profile_path
     else
@@ -34,4 +29,12 @@ class ProfileController < ApplicationController
   def user_params
       params.permit(:first_name, :last_name, :major, :gender, :grad_year, :transfer, :graduate, :international, :ethnicity => [])
     end
+  def set_params
+    if params[:gender]
+      params[:gender] = params[:gender].titleize
+    end
+    [:transfer, :graduate, :international].each do |field|
+      params[field] = false unless params[field]
+    end
+  end
 end
