@@ -23,7 +23,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
 end
 
 Given /^(?:|I )see "([^"]*)"$/ do |e1|
-  page.body.include?(e1)
+  expect(page.body.include?(e1)).to be(true)
 end
 
 When /^(?:|I )press "([^"]*)"( link)?$/ do |content, is_link|
@@ -43,19 +43,19 @@ When /^(?:|I )check "([^"]*)"$/ do |field|
 end
 
 Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|
-  page.body.include?(e1 + '[/.*/]' + e2)
+  expect(page.body.match?(/.*#{e1}.*#{e2}.*/m)).to be(true)
 end
 
 Then /I should see "(.*)" after "(.*)"$/ do |e1, e2|
-  page.body.include?(e2 + '[/.*/]' + e1)
+  expect(page.body.match?(/.*#{e2}.*#{e1}.*/m)).to be(true)
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |e1|
-  page.body.include?(e1)
+  expect(page.body.include?(e1)).to be(true)
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |e1|
-  !page.body.include?(e1)
+  expect(!page.body.include?(e1)).to be(true)
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
@@ -66,3 +66,4 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
     assert_equal path_to(page_name), current_path
   end
 end
+
