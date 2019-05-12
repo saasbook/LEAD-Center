@@ -18,6 +18,9 @@ class ProfileController < ApplicationController
     if params[:gender]
       params[:gender] = params[:gender].titleize
     end
+    [:transfer, :graduate, :international].each do |field|
+      params[field] = false unless params[field]
+    end
     if @profile.update_attributes(user_params)
       redirect_to show_profile_path
     else
@@ -27,6 +30,7 @@ class ProfileController < ApplicationController
   end
 
   private
+
   def user_params
       params.permit(:first_name, :last_name, :major, :gender, :grad_year, :transfer, :graduate, :international, :ethnicity => [])
     end
