@@ -9,13 +9,13 @@ class Organization
     @name = init_params['name']
     @description = init_params['description']
     @imageUrl = init_params['profileImageUrl']
-    @categories = init_params['type']
-    @interests = init_params['categories']
     @phone_number = init_params['phoneNumber']
     @email = init_params['email']
     @facebook = init_params['facebookUrl']
     @twitter = init_params['twitterUrl']
     @website = init_params['externalWebsite']
+    @categories = init_params['categories']
+    @interests = init_params['interests']
   end
 
   def self.get_organizations(num, categories, interests)
