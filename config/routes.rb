@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   get  'login'  => 'placeholder#landing', :as => 'landing'
   get 'generate_orgs' => 'placeholder#generate_orgs', :as => 'finish_quiz'
 
+  match '/auth/:provider/callback', to: "sessions#create", via: [:get, :post]
+  get 'signin' => "sessions#signin", :as => :signin
+  get '/signout' => 'sessions#destroy', :as => :signout
+  get 'auth/failure' => 'sessions#failure'
+
   root 'placeholder#home'
   resources :quizzes
   resources :response

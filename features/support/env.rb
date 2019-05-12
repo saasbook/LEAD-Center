@@ -29,6 +29,26 @@ capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
     'args' => ['--headless', '--disable-gpu']
   }
 )
+# Before('@omniauth_test') do
+  OmniAuth.config.test_mode = true
+  Capybara.default_host = 'http://example.com'
+
+ omniauth_hash = {
+    'provider' => 'CAS',
+    'uid' => '123545',
+    'credentials' => {
+        'token' => 'mock_token',
+        'secret' => 'mock_secret'
+    }
+}
+
+OmniAuth.config.add_mock(:cas, omniauth_hash)
+# end
+
+# After('@omniauth_test') do
+  # OmniAuth.config.test_mode = false
+# end
+
 
 Capybara.default_driver = :selenium
 Capybara.register_driver :selenium do |app|

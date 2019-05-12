@@ -24,10 +24,18 @@ Then /I should be redirected to "(.*)"$/ do |page_name|
   if page_name == 'home page'
     current_path.should == root_path
   end
+  if page_name == "calnet page"
+    current_path.should == '/cas/login'
+  end
 end
 
 And /click sign in button/ do
   click_button('login-button')
+end
+
+And /click log in button/ do
+ 
+  click_button('submit')
 end
 
 Given /I am logged in/ do
