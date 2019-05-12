@@ -48,6 +48,25 @@ Scenario: unchecking graduate checkbox
     And I press "Save Profile"
     Then I should not see "Graduate"
 
+Scenario: choose multiple ethnicities
+    Given I am on the profile page
+    And I see "East Asian"
+    When I press "Edit Profile" link
+    And I check "Latinx"
+    And I press "Save Profile"
+    Then I should see "Latinx"
+    And I should see "East Asian"
+
+Scenario: change from multiple to single ethnicity
+    Given I am on the profile page
+    And I see "East Asian"
+    And I see "Latinx"
+    When I press "Edit Profile" link
+    And I check "Latinx"
+    And I press "Save Profile"
+    Then I should not see "Latinx"
+    And I should see "East Asian"
+
 Scenario: editing Gender
     When I press "Edit Profile" link
     And I fill in "gender" with "Non Binary"
