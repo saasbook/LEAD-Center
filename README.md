@@ -44,8 +44,10 @@ The quiz questions are currently manually inputted through a seed file. These qu
 Quiz questions are to be provided by the LEAD center.
 
 ## Database Initialization
-
+* Create the database
 `rake db:create`
+* Seeding the database
+`rake db:seed`
 
 ## How to run the test suite
 
