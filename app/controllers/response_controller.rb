@@ -14,12 +14,7 @@ class ResponseController < ApplicationController
     content = question.options[params[:selected_options]]
     queue_content = question.question_queue_content(params[:selected_options])
     # Create response from question
-    responses_params = {
-      :question_id => question.id,
-      :content => queue_content[:content],
-      :quiz_id => @quiz.id,
-      :is_category => queue_content[:question_type] == 'categories'
-    }
+    responses_params = { :question_id => question.id, :content => queue_content[:content], :quiz_id => @quiz.id, :is_category => queue_content[:question_type] == 'categories' }
     @response = Response.new(responses_params)
     respond_to do |format|
       if @response.save

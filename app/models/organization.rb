@@ -3,13 +3,18 @@ require 'json'
 require 'csv'
 
 class Organization
-  attr_accessor :id, :name, :description, :imageUrl, :categories, :interests
+  attr_accessor :id, :name, :description, :imageUrl, :categories, :interests, :phone_number, :email, :facebook, :twitter, :website
 
   def initialize(init_params)
     @id = init_params['organizationId']
     @name = init_params['name']
     @description = init_params['description']
     @imageUrl = init_params['profileImageUrl']
+    @phone_number = init_params['phoneNumber']
+    @email = init_params['email']
+    @facebook = init_params['facebookUrl']
+    @twitter = init_params['twitterUrl']
+    @website = init_params['externalWebsite']
     @categories = init_params['categories']
     @interests = init_params['interests']
   end
