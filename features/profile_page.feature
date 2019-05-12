@@ -60,3 +60,5 @@ Scenario: automatically titleize Gender text
     And I fill in "gender" with "queer"
     And I press "Save Profile"
     Then I should see "Queer"
+    And I should not see "queer"
+

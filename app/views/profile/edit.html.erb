@@ -30,6 +30,15 @@
 <h4 id="update-profile-title" class="text-center">Update Profile</h4>
 <!-- User Profile Edit Form -->
 <div id="form-container" class="container heavy-labels">
+  <!-- Alert if on profile update failure -->
+  <% if alert %>
+    <p class="alert alert-warning alert-dismissible fade show">
+      <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </p>
+  <% end %>
   <form action= "/profile/<%= @id %>" method="post" id="info">
     <div class="row">
       <!-- Layout: >= md-size / < md-size -->
@@ -61,17 +70,9 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label for="gender">Gender Identity</label>
-            <select id="gender" name="gender" class="custom-select">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other" selected>Other</option>
-            </select>
-          </div>
-          <div id="gender-text-form" class="form-group col-lg-6" style="<%= @profile.gender == 'Male' || @profile.gender == 'Female' ? 'display: none;' : '' %>">
-            <label for="gender-text">Specify Gender</label>
-            <input type="text" name="gender_text" class="form-control" id="gender-text" value="<%= @profile.gender %>">
+          <div id="gender-text-form" class="form-group col-lg-6">
+            <label for="gender">Gender</label>
+            <input type="text" name="gender" class="form-control" id="gender" value="<%= @profile.gender %>">
           </div>
         </div>
       </div>
@@ -194,17 +195,6 @@
 
 
 <script type="text/javascript">
-  console.log('hello');
-  $('#gender').on('change',function(){
-    console.log('this', $(this).val());
-    if ($(this).val() === "Other"){
-      $("#gender-text-form").fadeIn();
-    }
-    else {
-      $("#gender-text-form").fadeOut();
-    }
-  });
-
   $(document).ready(function() {
     var checkboxes = $('#ethnicities input');
     for (var i=0; i < checkboxes.length; i++) {
@@ -232,6 +222,5 @@ function setSelected(a, b) {
     }
 }
 setSelected(document.getElementById('grad_year'),"<%= @profile.grad_year %>");
-setSelected(document.getElementById('gender'),"<%= @profile.gender %>");
 
 </script>
