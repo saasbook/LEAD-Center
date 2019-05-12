@@ -21,6 +21,21 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   end
 end
 
+Given /I have logged in to the interests upload page/ do
+	# Stub out the basic auth; not very compatible with cucumber, and we already test this in rspec
+	allow_any_instance_of(InterestsController).to receive(:http_authenticate) do |arg|
+	end
+	visit interests_path
+end
+
+When /I upload a file/ do
+  # Stub out the file write, just in case it overwrites something
+  allow_any_instance_of(InterestsController).to receive(:save_csv) do |arg|
+  end
+  attach_file('csv_file', "#{Rails.root}/spec/fixtures/dummy.csv")
+  click_button("Upload")
+end
+
 Given /^(?:|I )see "([^"]*)"$/ do |e1|
   expect(page.body.include?(e1)).to be(true)
 end
