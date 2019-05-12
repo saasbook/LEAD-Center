@@ -22,6 +22,10 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   end
 end
 
+Given /^(?:|I )see "([^"]*)"$/ do |e1|
+  page.body.include?(e1)
+end
+
 When /^(?:|I )press "([^"]*)"( link)?$/ do |content, is_link|
   is_link ? click_link(content) : click_button(content)
 end

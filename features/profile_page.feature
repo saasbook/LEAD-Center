@@ -33,3 +33,30 @@ Scenario: editing international
     And I check "international"
     And I press "Save Profile"
     Then I should see "International"
+
+Scenario: checking graduate checkbox
+    When I press "Edit Profile" link
+    And I check "graduate"
+    And I press "Save Profile"
+    Then I should see "Graduate"
+
+Scenario: unchecking graduate checkbox
+    Given I am on the profile page
+    And I see "Graduate"
+    When I press "Edit Profile" link
+    And I check "graduate"
+    And I press "Save Profile"
+    Then I should not see "Graduate"
+
+Scenario: editing Gender
+    When I press "Edit Profile" link
+    And I fill in "gender" with "Non Binary"
+    And I press "Save Profile"
+    Then I should see "Non Binary"
+    And I should not see "Male"
+
+Scenario: automatically titleize Gender text
+    When I press "Edit Profile" link
+    And I fill in "gender" with "queer"
+    And I press "Save Profile"
+    Then I should see "Queer"
