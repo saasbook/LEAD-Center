@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: "sessions#create", via: [:get, :post]
   get 'signin' => "sessions#signin", :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
-  get 'auth/failure' => 'session#failure'
+  get 'auth/failure' => 'sessions#failure'
 
   root 'placeholder#home'
   resources :quizzes

@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
 
   def failure
     session[:logged_in] = false
-    redirect_to root_url, :flash => "Authentication error"
+    flash[:message] = "Authentication failed."
+    redirect_to root_url
   end
 
   def signin
@@ -23,7 +24,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    # redirect_to root_url
     redirect_to "https://auth.berkeley.edu/cas/logout"
   end
 

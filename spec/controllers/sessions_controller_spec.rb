@@ -38,6 +38,16 @@ RSpec.describe SessionsController, type: :controller do
 
   end
 
+  describe "unsuccessful login" do
+
+    it "failes to authenticate" do
+      get :failure
+      expect(session[:logged_in]).to be_falsey
+      expect(response).to redirect_to root_url
+    end
+
+  end
+
 
 
 end
