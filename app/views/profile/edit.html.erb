@@ -20,199 +20,97 @@
   </div>
   </div>
 </nav>
-<div id="profile-picture" class="d-flex flex-column justify-content-center align-items-center bg-gradient-light">
-  <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
-  <div class="custom-file flex-shrink-1 mt-4 w-auto">
-    <input type="file" class="custom-file-input" id="customFile">
-    <label class="custom-file-label" for="customFile">Upload Photo</label>
-  </div>
-</div>
-<h4 id="update-profile-title" class="text-center">Update Profile</h4>
-<!-- User Profile Edit Form -->
-<div id="form-container" class="container heavy-labels">
-  <!-- Alert if on profile update failure -->
-  <% if alert %>
-    <p class="alert alert-warning alert-dismissible fade show">
-      <%= alert %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </p>
-  <% end %>
-  <form action= "/profile/<%= @id %>" method="post" id="info">
-    <div class="row">
-      <!-- Layout: >= md-size / < md-size -->
-      <!-- Layout: Left/Top -->
-      <div class="col-md-6">
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label for="first_name">First Name</label>
-            <input type="text" name="first_name" class="form-control" id="first_name" value="<%= @profile.first_name %>">
-          </div>
-          <div class="form-group col-lg-6">
-            <label for="last_name">Last Name</label>
-            <input type="text" name="last_name" class="form-control" id="last_name" value="<%= @profile.last_name %>">
-          </div>
+<hr>
+   <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+    <hr>
+    <form action= "/profile/<%= @id %>" method="post" id="info">
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="first_name"><h4>First name</h4></label>
+          <input type="text" name="first_name" class="form-control" id="first_name" value="<%= @profile.first_name %>">
         </div>
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label for="major">Major</label>
-            <input type="text" name="major" class="form-control" id="major" value="<%= @profile.major %>">
-          </div>
-          <div class="form-group col-lg-6">
-            <label for="grad_year">Graduation Year</label>
-            <select id="grad_year" name="grad_year" class="custom-select">
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div id="gender-text-form" class="form-group col-lg-6">
-            <label for="gender">Gender</label>
-            <input type="text" name="gender" class="form-control" id="gender" value="<%= @profile.gender %>">
-          </div>
-        </div>
-      </div>
-      <hr class="col-md-12 d-md-none">
 
-      <!-- Layout: Right/Bottom -->
-      <div class="col-md-5 offset-md-1 col-11 offset-1">
-        <!-- Ethnicity -->
-        <div class="form-group">
-          <label for="ethnicity">
-            Ethnicity 
-            <small class="text-muted">(Check all that apply)</small>
-          </label>
-          <div class="form-row light-labels" id="ethnicities">
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="African" id="African">
-              <label class="custom-control-label" for="African">
-                African
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="African-American" id="African-American">
-              <label class="custom-control-label" for="African-American">
-                African-American
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="White" id="White">
-              <label class="custom-control-label" for="White">
-                White
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="East Asian" id="East Asian">
-              <label class="custom-control-label" for="East Asian">
-                East Asian
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Southeast Asian" id="Southeast Asian">
-              <label class="custom-control-label" for="Southeast Asian">
-                Southeast Asian
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="South Asian" id="South Asian">
-              <label class="custom-control-label" for="South Asian">
-                South Asian
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Native American" id="Native American">
-              <label class="custom-control-label" for="Native American">
-                Native American
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Pacific Islander" id="Pacific Islander">
-              <label class="custom-control-label" for="Pacific Islander">
-                Pacific Islander
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Latinx" id="Latinx">
-              <label class="custom-control-label" for="Latinx">
-                Latinx
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Middle Eastern & North African/Southwest Asian & North African" id="Middle Eastern & North African/Southwest Asian & North African">
-              <label class="custom-control-label" for="Middle Eastern & North African / Southwest Asian & North African">
-                Middle Eastern & North African / Southwest Asian & North African
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Not Listed" id="Not Listed">
-              <label class="custom-control-label" for="Not Listed">
-                Not Listed
-              </label>
-            </div>
-            <div class="custom-control custom-checkbox col-sm-6">
-              <input class="custom-control-input" name="ethnicity[]" type="checkbox" value="Prefer not to state" id="Prefer not to state">
-              <label class="custom-control-label" for="Prefer not to state">
-                Prefer not to state
-              </label>
-            </div>
-          </div>
-        </div> <!-- End of Ethnicity -->
-        <hr>
-        <!-- Student type -->
-        <div class="form-group">
-          <label for="student">
-            Student 
-            <small class="text-muted">(Check if any applicable)</small>
-          </label>
-          <div class="form-row light-labels">
-            <div class="custom-control custom-checkbox col-lg-4">
-                <input class="custom-control-input" type="checkbox" id="transfer" name="transfer" <%= 'checked' unless !@profile.transfer %>>
-                <label class="custom-control-label" for="transfer">Transfer</label>
-            </div>
-            <div class="custom-control custom-checkbox col-lg-4">
-                <input class="custom-control-input" type="checkbox" id="graduate" name="graduate" <%= 'checked' unless !@profile.graduate %>>
-                <label class="custom-control-label" for="graduate">Graduate</label>
-            </div>
-            <div class="custom-control custom-checkbox col-lg-4">
-                <input class="custom-control-input" type="checkbox" id="international" name="international" <%= 'checked' unless !@profile.international %>>
-                <label class="custom-control-label" for="international">International</label>
-            </div>
-          </div>
+        <div class="form-group col-md-3">
+          <label for="last_name"><h4>Last name</h4></label>
+          <input type="text" name="last_name" class="form-control" id="last_name" value="<%= @profile.last_name %>">
         </div>
-        <hr>
-        <!-- Submit button -->
-        <div class="form-group justify-content-center">
-          <button id="update-profile-btn" class="btn btn-primary" type="submit">Save Profile</button>
+
+        <div class="form-group col-md-6">
+          <label for="major"><h4>Major</h4></label>
+          <input type="text" name="major" class="form-control" id="major" value="<%= @profile.major %>">
         </div>
       </div>
-    </div>
-  </form>
-</div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="grad_year"><h4>Graduation Year</h4></label>
+          <select id="grad_year" name="grad_year" class="form-control form-control-lg">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="gender"><h4>Gender Identity</h4></label>
+          <select id="gender" name="gender" class="form-control form-control-lg">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form group col-md-6">
+          <label for="ethnicity"><h4>Ethnicity</h4></label>
+          <select id="ethnicity" name="ethnicity" class="form-control form-control-lg">
+            <option value="African">African</option>
+            <option value="African-American">African-American</option>
+            <option value="White">White</option>
+            <option value="East Asian">East Asian</option>
+            <option value="Southeast Asian">Southeast Asian</option>
+            <option value="South Asian">South Asian</option>
+            <option value="Middle Eastern & North African/Southwest Asian & North African">Middle Eastern & North African/Southwest Asian & North African</option>
+            <option value="Pacific Islander">Pacific Islander</option>
+            <option value="Latinx">Latinx</option>
+            <option value="Native American">Native American</option>
+            <option value="Not Listed">Not Listed</option>
+            <option value="Prefer not to state">Prefer not to state</option>
+          </select>
+        </div>
+        </div>
+        <h4>Check All That Apply</h4>
+          <div class="form-inline">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="transfer" name="transfer" <%= 'checked' unless !@profile.transfer %>>
+                <label for="transfer">Transfer Student</label>
+            </div>
+          </div>
+          <div class="form-inline">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="graduate" name="graduate" <%= 'checked' unless !@profile.graduate %>>
+                <label for="graduate">Graduate Student</label>
+            </div>
+          </div>
+          <div class="form-inline">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="international" name="international" <%= 'checked' unless !@profile.international %>>
+                <label for="international">International Student</label>
+            </div>
+          </div>
+
+      <div class="form-group row ">
+        <div class="col-xs-12 center block">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    	</div>
+    </form>
 
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    var checkboxes = $('#ethnicities input');
-    for (var i=0; i < checkboxes.length; i++) {
-      markChecked(checkboxes[i]);
-    }
-  });
-
-  function markChecked(elem) {
-    var studentEthnicity = <%=raw @profile.ethnicity %>;
-    if (studentEthnicity.includes(elem.value)) {
-      console.log(elem);
-      $(elem).prop('checked', true);
-    }
-    return;
-  }
-
-
-
 function setSelected(a, b) {
     for (var i=0; i<a.options.length; i++ ){
         if (a.options[i].value==b){
@@ -222,5 +120,6 @@ function setSelected(a, b) {
     }
 }
 setSelected(document.getElementById('grad_year'),"<%= @profile.grad_year %>");
-
+setSelected(document.getElementById('ethnicity'),"<%= @profile.ethnicity %>");
+setSelected(document.getElementById('gender'),"<%= @profile.gender %>");
 </script>
