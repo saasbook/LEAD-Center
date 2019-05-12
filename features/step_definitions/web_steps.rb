@@ -68,17 +68,6 @@ Then /I should see a finished quiz page/ do
   expect(page).to have_link('finish-quiz')
 end
 
-Then /I should see matched orgs/ do
-  sleep 80
-  binding.pry
-  expect(page).to have_text(:all, "Description")
-end
-
-And /I click the See Orgs button/ do
-  sleep 3
-  click_link('See Orgs')
-end
-
 Then /I should not see a "Start" button/ do
   page.should have_no_content('Start')
 end

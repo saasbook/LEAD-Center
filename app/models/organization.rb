@@ -43,7 +43,6 @@ class Organization
     url = 'https://callink.berkeley.edu/api/Organizations'
     orgs = []
     pageNumber = 0
-    binding.pry
 
     loop do
       pageNumber += 1
