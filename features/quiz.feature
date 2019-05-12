@@ -39,4 +39,12 @@ Feature: Interests Quiz
     Given I am not logged in
     And I am on "home page"
     Then I should not see a "Start" button
-  
+
+  @hello
+  Scenario: See org info
+    Given I am logged in
+    And I am on "home page"
+    And I click the "Start" button
+    When I repeatedly answer questions
+    And I click the See Orgs button
+    Then I should see matched orgs

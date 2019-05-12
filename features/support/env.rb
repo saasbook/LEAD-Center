@@ -25,7 +25,7 @@ World(FactoryBot::Syntax::Methods)
 
 capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
   'chromeOptions' => {
-    'args' => ['--headless', '--disable-gpu']
+    'args' => []
   }
 )
 

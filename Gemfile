@@ -71,7 +71,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug'
   # setup Cucumber, RSpec, Guard support
   gem 'rspec-rails'
   gem 'guard-rspec'
