@@ -39,6 +39,7 @@ class Organization
      if interests != nil
        top_orgs = top_orgs.sort_by { |org| -org.count_interest(interests)}
      end
+     top_orgs = top_orgs.uniq { |org| org.id}
     return top_orgs[0 ... num]
   end
 
