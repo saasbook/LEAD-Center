@@ -18,9 +18,13 @@ class InterestsController < ApplicationController
 	end
 	
 	def upload
-		flash[:notice] = "File successfully uploaded."
 		my_csv = params["csv_file"]
+		if (my_csv == nil)
+			flash[:notice] = "Please upload a file."
+			redirect_to interests_path
+		end
 		save_csv(my_csv)
+		flash[:notice] = "File successfully uploaded."
 		redirect_to interests_path
 	end
 	
