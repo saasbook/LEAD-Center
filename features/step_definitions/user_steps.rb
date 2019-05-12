@@ -1,3 +1,5 @@
+require "rack_session_access/capybara"
+
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
     # Should be part of the new profile change
@@ -9,7 +11,9 @@ end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   case page_name
-  when /^the profile page$/ then visit "/profile/1"
+  when /^the profile page$/ 
+    page.set_rack_session(:user_id => 1)
+    visit "/profile/1"
   when /^the edit page$/ then visit "profile/1/edit"
   when /^"landing page"$/ then visit landing_path
   when /^"home page"$/ then visit root_path
