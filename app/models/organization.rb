@@ -18,11 +18,8 @@ class Organization
     @categories = init_params['categories']
     @interests = init_params['interests']
   end
-
-  def self.get_organizations(num, categories, interests)
-    orgs = self.get_orgs_from_api()
-    csv_text = File.read('lib/interest.csv')
-    interest = CSV.parse(csv_text, headers: true)
+  
+  def add_orgs_by_categories(orgs, categories, interest)
     top_orgs = []
     orgs.each do |i|
       org_categories = i['categories']
@@ -40,7 +37,14 @@ class Organization
         end
       end
     end
-
+    return top_orgs
+  end
+  
+  def self.get_organizations(num, categories, interests)
+    orgs = self.get_orgs_from_api()
+    csv_text = File.read('lib/interest.csv')
+    interest = CSV.parse(csv_text, headers: true)
+    top_orgs = add_orgs_by_categories(orgs, categories, interest)
      if interests != nil
        top_orgs = top_orgs.sort_by { |org| -org.count_interest(interests)}
      end
