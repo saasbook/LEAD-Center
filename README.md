@@ -17,6 +17,8 @@ Note that our current API key is considered a development key and can be used fr
 
 We have sensitive data that should be handled according to [this guide.](http://saasbook.github.io/courseware/devops/managing-api-keys.html)
 
+Heroku's filesystem is ephemeral, and resets to pushed code at every restart. This has implications for the interests.csv file.
+
 ## Configuration
 
 Important secret keys are contained inside the config/application.yml.asc file. The decrypted version is not stored on github for security purposes. Each time you update this file you must re-encrypt, and have everyone also re-decrypt. 
@@ -63,6 +65,8 @@ Currently data retrieval from the CalLink API is very slow. There doesn't seem t
 
 If time permits, further functionality such as organization portals and event planners can be implemented.
 
+Since heroku's filesystem is ephemeral, there should be a solution to updating content without pushing. In particular, the interests.csv file, and quiz questions.
+
 ## Deployment instructions
 
 The current app is already deployed to [Heroku](https://communities-cal.herokuapp.com). However, if you wish to deploy your own version of this app to your own Heroku account, you can can easily deploy using `git` by following [this guide](https://devcenter.heroku.com/articles/git). 
@@ -75,4 +79,7 @@ Figaro allows you to easily configure the environment variables from `config/app
 
 Worth noting that auth.berkeley.edu authentication is currently registered for the domain “https://communities-cal.herokuapp.com". Since currently it is tied to an old team member's account, you may need to re-request authentication to change this.
 
+### Heroku Database Commands
+To reset the database on heroku: `heroku restart && heroku pg:reset DATABASE_URL --confirm communities-cal && heroku run rake db:migrate && heroku run rake db:seed`
 
+To just run a migration `heroku run rake db:migrate`
