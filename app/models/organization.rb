@@ -19,7 +19,7 @@ class Organization
     @interests = init_params['interests']
   end
   
-  def add_orgs_by_categories(orgs, categories, interest)
+  def self.add_orgs_by_categories(orgs, categories, interest)
     top_orgs = []
     orgs.each do |i|
       org_categories = i['categories']
