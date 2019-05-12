@@ -1,11 +1,5 @@
 class ProfileController < ApplicationController
-
   skip_before_action :verify_authenticity_token
-
-  def create
-    User.create!(params[:user])
-    redirect_to show_profile_path
-  end
 
   def show
       id = params[:id]
@@ -27,10 +21,10 @@ class ProfileController < ApplicationController
     if @profile.update_attributes!(user_params)
       redirect_to show_profile_path
     else
-      binding.pry
       redirect_to edit_profile_path(params[:id])
     end
   end
+  
   private
   def user_params
       params.permit(:first_name, :last_name, :major, :gender, :grad_year, :transfer, :graduate, :international, :ethnicity => [])
