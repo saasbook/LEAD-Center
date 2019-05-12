@@ -15,22 +15,69 @@ Background: users have been added to database
     Then I should see "First Name"
 
 Scenario: editing first name
-    When I press "Edit Profile"
+    When I press "Edit Profile" link
     And I fill in "first_name" with "Dean"
-    And I press "Submit"
-    Then I should see "Dean" after "First Name"
-    And I should see "Dean" before "Last Name"
+    And I press "Save Profile"
+    Then I should see "Dean"
     And I should not see "Tony"
 
 Scenario: editing grad_year
-    When I press "Edit Profile"
+    When I press "Edit Profile" link
     And I select "2021" from "grad_year"
-    And I press "Submit"
+    And I press "Save Profile"
     Then I should see "2021" after "Graduation Year"
     And I should not see "2020"
 
 Scenario: editing international
-    When I press "Edit Profile"
+    When I press "Edit Profile" link
     And I check "international"
-    And I press "Submit"
-    Then I should see "Yes" after "International"
+    And I press "Save Profile"
+    Then I should see "International"
+
+Scenario: checking graduate checkbox
+    When I press "Edit Profile" link
+    And I check "graduate"
+    And I press "Save Profile"
+    Then I should see "Graduate"
+
+Scenario: unchecking graduate checkbox
+    Given I am on the profile page
+    And I see "Graduate"
+    When I press "Edit Profile" link
+    And I check "graduate"
+    And I press "Save Profile"
+    Then I should not see "Graduate"
+
+Scenario: choose multiple ethnicities
+    Given I am on the profile page
+    And I see "East Asian"
+    When I press "Edit Profile" link
+    And I check "Latinx"
+    And I press "Save Profile"
+    Then I should see "Latinx"
+    And I should see "East Asian"
+
+Scenario: change from multiple to single ethnicity
+    Given I am on the profile page
+    And I see "East Asian"
+    And I see "Latinx"
+    When I press "Edit Profile" link
+    And I check "Latinx"
+    And I press "Save Profile"
+    Then I should not see "Latinx"
+    And I should see "East Asian"
+
+Scenario: editing Gender
+    When I press "Edit Profile" link
+    And I fill in "gender" with "Non Binary"
+    And I press "Save Profile"
+    Then I should see "Non Binary"
+    And I should not see "Male"
+
+Scenario: automatically titleize Gender text
+    When I press "Edit Profile" link
+    And I fill in "gender" with "queer"
+    And I press "Save Profile"
+    Then I should see "Queer"
+    And I should not see "queer"
+

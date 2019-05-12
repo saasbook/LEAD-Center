@@ -2,6 +2,7 @@ Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    user[:ethnicity] = user[:ethnicity].split(/,/)
     users = User.create(user)
     users.save
   end
@@ -21,8 +22,12 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   end
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
-  click_button(button)
+Given /^(?:|I )see "([^"]*)"$/ do |e1|
+  page.body.include?(e1)
+end
+
+When /^(?:|I )press "([^"]*)"( link)?$/ do |content, is_link|
+  is_link ? click_link(content) : click_button(content)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -34,7 +39,7 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
-  check(field)
+  find("label[for='#{field}']").click
 end
 
 Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|

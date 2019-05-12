@@ -1,11 +1,5 @@
 class ProfileController < ApplicationController
-
   skip_before_action :verify_authenticity_token
-
-  def create
-    User.create!(params[:user])
-    redirect_to show_profile_path
-  end
 
   def show
       id = params[:id]
@@ -15,20 +9,25 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @profile = User.find(session[:id])
-    @id = session[:id]
+    @profile = User.find(params[:id])
+    @id = params[:id]
   end
 
   def update
     @profile = User.find(params[:id])
-    @profile.update_attributes!(user_params)
-    @profile.update_attribute(:transfer, params[:transfer] ? true : false)
-    @profile.update_attribute(:graduate, params[:graduate] ? true : false)
-    @profile.update_attribute(:international, params[:international] ? true : false)
-    redirect_to show_profile_path
+    if params[:gender]
+      params[:gender] = params[:gender].titleize
+    end
+    if @profile.update_attributes(user_params)
+      redirect_to show_profile_path
+    else
+      flash[:alert] = 'There was a problem updating your profile.'
+      redirect_to edit_profile_path(params[:id])
+    end
   end
+
   private
   def user_params
-      params.permit(:first_name, :last_name, :major, :gender, :grad_year, :ethnicity, :transfer, :graduate, :international)
+      params.permit(:first_name, :last_name, :major, :gender, :grad_year, :transfer, :graduate, :international, :ethnicity => [])
     end
 end
