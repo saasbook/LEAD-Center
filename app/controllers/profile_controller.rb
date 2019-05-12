@@ -1,8 +1,12 @@
 class ProfileController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def show
       id = params[:id]
+      unless correct_user?
+        redirect_to root_url
+      end
       @profile = User.find(id)
       @id = id
       session[:id] = id

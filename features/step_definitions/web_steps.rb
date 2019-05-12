@@ -27,6 +27,9 @@ Then /I should be redirected to "(.*)"$/ do |page_name|
   if page_name == "calnet page"
     current_path.should == '/cas/login'
   end
+  if page_name == "profile page"
+    current_path.should == '/profile/1/edit'
+  end
 end
 
 And /click sign in button/ do

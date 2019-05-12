@@ -8,6 +8,7 @@ Feature: profile page and edit page
     Given the following users exist:
       | first_name | last_name | major | gender | grad_year | ethnicity  | transfer | graduate | international |
       | Tony       | Li        | IEOR  | Male   | 2020      | East Asian | false    | false    | false         |
+    And I am logged in
     And I am on the profile page
 
   Scenario: editing first name
