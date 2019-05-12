@@ -47,6 +47,15 @@ RSpec.describe Organization, type: :model do
        expect(orgs[2].id).to eq 0
        expect(orgs.length).to eq 3
      end
+
+     it 'sorts even if org is not listed in interests' do
+       orgs = Organization.get_organizations(4, ["academic","social"], ["advocacy","community service","food"]);
+       expect(orgs[0].id).to eq 1
+       expect(orgs[1].id).to eq 2
+       expect(orgs[2].id).to eq 0
+       expect(orgs[3].id).to eq 5
+       expect(orgs.length).to eq 4
+     end
   end
 
 end

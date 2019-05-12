@@ -9,6 +9,14 @@
   "categories": [
         {  "categoryName": "greek life"}
       ]
-  }
+  },
+  {"organizationId": 5,
+  "name": "no interest",
+  "description": "Placeholder description",
+  "profileImageUrl": "Placeholder image",
+  "categories": [
+        {  "categoryName": "academic"}
+      ]
+    }
   ]
 }

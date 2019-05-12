@@ -24,7 +24,12 @@ class Organization
       org_categories.each do |c|
         categories.each do |quiz_category|
           if c['categoryName'].downcase.include? quiz_category.downcase
-            i['interests'] = interest.find {|row| row['Organization ID'].to_i == i['organizationId']}['Organization Interest']
+            org_interest = interest.find {|row| row['Organization ID'].to_i == i['organizationId']}
+            if org_interest != nil
+              i['interests'] = org_interest['Organization Interest']
+            else
+              i['interests'] = ''
+            end
             top_orgs.push(Organization.new(i))
           end
         end
