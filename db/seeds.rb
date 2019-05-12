@@ -11,12 +11,26 @@
     options: {
       'Academic' => ['Academic', 'Campus Departments', 'Departmental Organizations', 'Professional'],
       'Advocacy' => ['Academic', 'Cultural & Ethnic', 'Environmental & Sustainability', 'Health & Wellness', 'LGBTQ+', 'Political & Advocacy', 'Professional', 'RRC', 'Service'],
-      'Creativity' => ['Arts', 'Media & Film', 'Performing Arts', 'Publication', 'Recreational']
+      'Creativity' => ['Arts', 'Media & Film', 'Performing Arts', 'Publication', 'Recreational'],
+      'Culture & Identity' => ['Academic', 'Arts', 'CalGreeks', 'Cultural & Ethnic', 'Ethnic Studies', 'International', 'LGBTQ+', 'Performing Arts', 'RRC', 'Service', "Women's Interests"],
+      'Professional Development' => ['Academic', 'Campus Departments', 'Professional', 'Service', 'Technology'],
+      'Public Service' => ['Academic', 'Cultural & Ethnic', 'Environmental & Sustainability', 'Health & Wellness', 'Political & Advocacy', 'Professional', 'RRC', 'Service'],
+      'Social' => ['Academic', 'Arts', 'CalGreeks', 'Cultural & Ethnic', 'Environmental', 'Health & Wellness', 'Professional', 'Recreational', 'Service'],
+      'Spiritual' => ['Cultural & Ethnic', 'Health & Wellness', 'Spiritual'],
+      'Student Government(ASUC/GA)' => ['ASUC Coalition/Commission', 'ASUC Government Offices', 'ASUC Government Programs', 'GA Government Offices', 'GA Government Projects'],
+      'Technology' => ['Academic', 'Professional', 'Service', 'Technology']
     },
     next_question: {
       'Academic' => 2,
       'Advocacy' => 3,
       'Creativity' => 4,
+      'Culture & Identity' => 5,
+      'Professional Development' => 6,
+      'Public Service' => 7,
+      'Social' => 8,
+      'Spiritual' => 9,
+      'Student Government(ASUC/GA)' => 10,
+      'Technology' => 11
     },
     question_type: 'categories'
   )
@@ -99,6 +113,174 @@
       'Publications & Media' => nil,
       'Service' => nil,
       'Social Activism' => nil,
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Culture & Identity, what are you specifically looking for:',
+    options: {
+      'Activism and Advocacy' => ['Cultural', 'Ethnic', 'Advocacy', 'Intersections of Identity', 'Leadership', 'Political', 'Social Activism'],
+      'Education' => ['Cultural', 'Ethnic', 'Academic', 'Career Planning', 'Educational'],
+      'Expression (Arts, Media)' => ['Cultural', 'Ethnic', 'Arts - Dance', 'Arts - Music', 'Media'],
+      'Faith, Religion, & Spiritual' => ['Cultural', 'Ethnic', 'Faith, Religion, & Spiritual'],
+      'Retention and Outreach' => ['Cultural', 'Ethnic', 'Intersections of Identity', 'LGBTQI', 'Service - Outreach', 'Service - Retention'],
+      'Service' => ['Cultural', 'Ethnic', 'Community Service', 'Service - Community Involvement', 'Service - Outreach', 'Service - Retention'],
+      'Sexuality' => ['Cultural', 'Ethnic', 'Gender & Sexuality ', 'Intersections of Identity', 'LGBTQI'],
+      'Social Community' => ['Cultural', 'Ethnic', 'Fun!', 'Social']
+    },
+    next_question: {
+      'Activism and Advocacy' => nil,
+      'Education' => nil,
+      'Expression (Arts, Media)' => nil,
+      'Faith, Religion, & Spiritual' => nil,
+      'Retention and Outreach' => nil,
+      'Service' => nil,
+      'Sexuality' => nil,
+      'Social Community' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Professional Development, what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Public Service what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Social, what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Spiritual, what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Student Government, what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
+    },
+    question_type: 'interests'
+  )
+  Question.create(
+    title: 'Based on your interest in Technology, what are you specifically looking for:',
+    options: {
+      'Business' => [],
+      'Education, Development, & Career Planning' => [],
+      'Identity' => [],
+      'Media' => [],
+      'Pre-Professional' => [],
+      'Representation and Advocacy' => [],
+      'Social Community' => [],
+      'Technology' => []
+    },
+    next_question: {
+      'Business' => nil,
+      'Education, Development, & Career Planning' => nil,
+      'Identity' => nil,
+      'Media' => nil,
+      'Pre-Professional' => nil,
+      'Representation and Advocacy' => nil,
+      'Social Community' => nil,
+      'Technology' => nil
     },
     question_type: 'interests'
   )
