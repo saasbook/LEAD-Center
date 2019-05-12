@@ -21,6 +21,21 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   end
 end
 
+Given /I have logged in to the interests upload page/ do
+	# Stub out the basic auth; not very compatible with cucumber, and we already test this in rspec
+	allow_any_instance_of(InterestsController).to receive(:http_authenticate) do |arg|
+	end
+	visit interests_path
+end
+
+When /I upload a file/ do
+  # Stub out the file write, just in case it overwrites something
+  allow_any_instance_of(InterestsController).to receive(:save_csv) do |arg|
+  end
+  attach_file('csv_file', "#{Rails.root}/spec/fixtures/dummy.csv")
+  click_button("Upload")
+end
+
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
@@ -38,19 +53,19 @@ When /^(?:|I )check "([^"]*)"$/ do |field|
 end
 
 Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|
-  page.body.include?(e1 + '[/.*/]' + e2)
+  expect(page.body.match?(/.*#{e1}.*#{e2}.*/m)).to be(true)
 end
 
 Then /I should see "(.*)" after "(.*)"$/ do |e1, e2|
-  page.body.include?(e2 + '[/.*/]' + e1)
+  expect(page.body.match?(/.*#{e2}.*#{e1}.*/m)).to be(true)
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |e1|
-  page.body.include?(e1)
+  expect(page.body.include?(e1)).to be(true)
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |e1|
-  !page.body.include?(e1)
+  expect(!page.body.include?(e1)).to be(true)
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
