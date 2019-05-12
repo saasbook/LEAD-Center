@@ -85,6 +85,8 @@ group :test do
   gem 'rails-controller-testing' # for some rspec testing features
   # Use WebMock for internet stubbing
   gem 'webmock'
+  # Use a middleware to set session authentication tokens during tests
+  gem 'rack_session_access'
 end
 
 # make sure the following gems are in your production group:

@@ -3,13 +3,22 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env['omniauth.auth']
-    @user = User.where(:uid => auth['uid'].to_s).first || User.create_new_user(auth)
+    @user = User.where(:uid => auth['uid'].to_s).first
+    new_user = false
+    if @user.nil?
+      @user = User.create_new_user(auth)
+      new_user = true
+    end
     reset_session
     session[:user_id] = @user.id
     session[:ticket] = auth[:credentials][:ticket]
     session[:auth] = auth
     session[:logged_in] = true
-    redirect_to root_url
+    if new_user
+      redirect_to controller: 'profile', action: 'edit', id: @user.id
+    else
+      redirect_to root_url
+    end
   end
 
   def failure
