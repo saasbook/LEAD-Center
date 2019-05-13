@@ -23,7 +23,6 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
     raw_response_file1 = File.new("spec/response/raw_organizations_response.txt")
     stub_request(:any, url).with(:query => { :page => 1, :key => Figaro.env.callink_key, :status => 'Active', :type => 'Registered Student Organizations' }).to_return(:body => raw_response_file1.read)
     visit "/generate_orgs?quiz_id=1"
-	save_and_open_page
   end
 end
 
