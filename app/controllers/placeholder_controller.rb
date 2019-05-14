@@ -17,6 +17,7 @@ class PlaceholderController < ApplicationController
     if not session[:logged_in]
       redirect_to landing_path
     end
+	@id = session[:user_id]
     @showAllOrgs = true
   end
 
