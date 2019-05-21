@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  options: MyText
+  title: MyString
+  categories: MyText
+  can_skip: false
+
+two:
+  options: MyText
+  title: MyString
+  categories: MyText
+  can_skip: false

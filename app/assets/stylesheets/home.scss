@@ -1,0 +1,208 @@
+#home-hero {
+  height: 500px;
+  background-image:  url('http://lead.berkeley.edu/wp-content/uploads/2014/01/lead-center-backgroundv2.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home-hero h3 {
+  color: #ffffff;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+.navbar {
+  background-color: #00B2A9;
+}
+
+.start-quiz-btn {
+  margin-top: 2em;
+  padding: 0.5em 1.5em !important;
+  color: #ffffff !important;
+  background-color: lighten(#FDB515, 10%) !important;
+  font-family: $noto-font;
+  border-radius: 0px !important;
+  // background-color: rgba(185, 211, 182, 1) !important;
+}
+
+.start-quiz-btn:hover {
+  background-color: lighten(#FDB515, 5%) !important;
+}
+
+.home-title {
+  font-family: $quadon-bold;
+}
+
+.matched {
+  text-align: center;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+div.snip1104 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 220px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+div.snip1104 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+div.snip1104 img {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.4;
+}
+
+div.snip1104 figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+div.snip1104 .fig-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
+
+div.snip1104 h4 {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  display: inline-block;
+  background: #000000;
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  padding: 12px 5px;
+  margin: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+div.snip1104 h4 span {
+  font-weight: 800;
+}
+
+div.snip1104:before {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background: #ffffff;
+  position: absolute;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: rotate(110deg) translateY(-50%);
+  transform: rotate(110deg) translateY(-50%);
+}
+
+div.snip1104 .fig-holder {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.snip1104:hover .fig-holder {
+  opacity: 1;
+}
+
+div.snip1104:hover .fig-holder .btn-outline-light {
+  font-weight: 900 !important;
+  border: 2px solid #eee !important;
+  border-radius: 0 !important;
+}
+div.snip1104:hover .fig-holder .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+}
+
+div.snip1104.blue {
+  background: #46535E;
+}
+
+div.snip1104.blue h4 {
+  background: #00B2A9;
+}
+
+div.snip1104:hover img,
+div.snip1104.hover img {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+div.snip1104:hover h4,
+div.snip1104.hover h4 {
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+}
+
+div.snip1104:hover:before,
+div.snip1104.hover:before {
+  -webkit-transform: rotate(110deg) translateY(-150%);
+  transform: rotate(110deg) translateY(-150%);
+}
+
+.slick-next, .slick-prev {
+  background: transparent;
+}
+.slick-next:hover, 
+.slick-next:focus, 
+.slick-prev:hover, 
+.slick-prev:focus {
+  background: transparent;
+}
+
+.slick-next:hover, 
+.slick-next:focus .slick-next:before {
+  opacity: 1;
+}
+
+.slick-prev:hover, 
+.slick-prev:focus .slick-prev:before {
+  opacity: 1;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+  opacity: .75;
+  color: #00B2A9;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
+{
+  opacity: 0;
+}
+

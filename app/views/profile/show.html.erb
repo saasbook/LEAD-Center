@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #00B2A9">
+  <div class="container">
+
+  <a class="navbar-brand" href="/">communities<b>@Cal</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= signout_path %>" >Sign Out</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+<div id="profile-hero">
+  <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" id="profile-avatar" class="avatar rounded-circle img-thumbnail" alt="avatar">
+</div>
+<div id="profile-container" class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card bg-light">
+        <h5 id="profile-name" class="card-header text-center"><%= @profile.first_name %> <%= @profile.last_name %></h5>
+        <ul id="profile-content" class="list-group list-group-flush">
+          <li class="list-group-item profile-field">
+            <label>Major:</label>
+            <%= @profile.major %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Graduation Year:</label>
+            <%= @profile.grad_year %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Gender:</label>
+            <%= @profile.gender %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Ethnicity:</label>
+            <% if @profile.ethnicity.length > 1 %>
+              <ul class="list-group nested-group">
+              <% @profile.ethnicity.each do |eth| %>
+                <li><%= eth %></li>
+              <% end %>
+              </ul>
+            <% else %>
+              <%= @profile.ethnicity.length > 0 ? @profile.ethnicity[0] : '' %>
+            <% end %>
+          </li>
+          <li class="list-group-item profile-field">
+            <label>Student:</label>
+            <% if @profile.graduate || @profile.transfer || @profile.international %>
+              <ul class="list-group nested-group">
+                <% if @profile.graduate %>
+                  <li>Graduate</li>
+                <% end %>
+                <% if @profile.transfer %>
+                  <li>Transfer</li>
+                <% end %>
+                <% if @profile.international %>
+                  <li>International</li>
+                <% end %>
+              </uL>
+            <% else %>
+              N/A
+            <% end %>
+          </li>
+        </ul>
+        <div class="card-footer text-center">
+          <%= link_to "Edit Profile", edit_profile_path(@id), class: "btn btn-primary", id: "edit-profile-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

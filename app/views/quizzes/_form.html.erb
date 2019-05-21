@@ -1,0 +1,21 @@
+<!-- Modal -->
+<div class="modal fade" id="quiz-modal" tabindex="-1" role="dialog" aria-labelledby="quiz-modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div id='modal-content' class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Quiz</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id='response-form-container'>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= form_tag(quizzes_path, method: "post", remote: true) do %>
+  <div class="text-center">
+    <%= submit_tag('Start', id: 'start-quiz-btn', class: 'btn start-quiz-btn btn-outline-warning', 'data-toggle': 'modal', 'data-target': '#quiz-modal', 'data-backdrop': 'static', 'data-keyboard': 'false', data: { disable_with: false }) %>
+  </div>
+<% end %>
